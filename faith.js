@@ -175,7 +175,7 @@ client.on('message', async (msg) => {
           if (client.profile.get(`${msg.guild.id}-${msg.author.id}`, "level") === 0) {
           	        client.profile.set(`${msg.guild.id}-${msg.author.id}`, 1, "level");
           } else if(client.profile.get(`${msg.guild.id}-${msg.author.id}`, "level") > 0) {
-          client.channels.get(channel).send(message.replace('{user}', msg.author).replace('{level}', curLevel))
+          client.channels.cache.get(channel).send(message.replace('{user}', msg.author).replace('{level}', curLevel))
           }
 
 
@@ -457,5 +457,5 @@ return;
 
 
 
-  client.login("NjcyNzc4MzIzMTE3NDczNzky.XjQbow.ntrgeOl2uvSfYqfN7FJEBJSUNLY")
+  client.login("Your_TOKEN")
 
