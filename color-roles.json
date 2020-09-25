@@ -1,0 +1,6 @@
+
+[
+    {
+        "roles": [{ "hex": "WHITE", "name": "white", "emoji": "☁️"}, {"hex": "BLACK", "name":"black", "emoji": "⚫"}, {"hex": "#C0C0C0", "name": "silver", "emoji": "⛓️"}, {"hex": "#808080", "name": "gray", "emoji": "❕"}, {"hex": "RED", "name": "red", "emoji": "🍅"}, {"hex": "#ff726f", "name": "light red", "emoji": "🥭"}, {"hex": "#ff8c69", "name": "salmon", "emoji": "🍂"}, {"hex": "#ff2400", "name": "scarlet", "emoji": "🐦"}, {"hex": "YELLOW", "name": "yellow", "emoji": "🐤"}, {"hex": "#fffb9d", "name": "cream", "emoji": "🌕"}, {"hex": "#F8DE7E", "name": "mellow yellow", "emoji": "🐅"}, {"hex": "#daa520", "name": "goldenrod", "emoji": "🍊"}, {"hex": "GREEN", "name": "green", "emoji": "🍏"}, { "hex": "#bfff00", "name": "lime", "emoji": "🍐"}, { "hex": "#568203", "name": "avocado", "emoji": "🥑"}, { "hex": "#00ff7f", "name": "spring", "emoji": "🥒"}, { "hex": "#ffc0cb", "name": "pink", "emoji": "🧠"}, { "hex": "#ff00ff", "name": "magenta", "emoji": "🍁"}, { "hex": "#FFD7E9", "name": "creamy", "emoji": "🐷"}, { "hex": "#f4788c", "name": "punch", "emoji": "🌸"}, { "hex": "#0000ff", "name": "blue", "emoji": "🔵"}, { "hex": "#add8e6", "name": "lightblue", "emoji": "👗"}, { "hex": "#00FFFF", "name": "aqua", "emoji": "☄️"}, { "hex": "#00ffff", "name": "cyan", "emoji": "💙"}]
+    }
+]
