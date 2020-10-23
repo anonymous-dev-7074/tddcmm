@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 const { MessageAttachment } = require("discord.js");
 const canvacord = require("canvacord");
+const Discord = require("discord.js");
 
 exports.run = (client, msg, args) => {
   let user =
@@ -20,18 +21,17 @@ exports.run = (client, msg, args) => {
   const pointsNeeded = xpForLevel(curLevel + 1);
   const Level = client.profile.get(`${msg.guild.id}-${user.id}`, "level");
   const card = new canvacord.Rank({
-  Username: user.username,
-  Discriminator: user.discriminator,
-  Level: Level,
-  CurrentXP: curLevel.toString(),
-  RequiredXP: pointsNeeded.toString(),
-  Status: user.presence.status;
-  Avatar: user.displayAvatarURL({ format: "png", size: 1024 }),
-  color : "white"
+    Username: user.username,
+    Discriminator: user.discriminator,
+    Level: Level,
+    CurrentXP: curLevel.toString(),
+    RequiredXP: pointsNeeded.toString(),
+    Status: user.presence.status,
+    Avatar: user.displayAvatarURL({ format: "png", size: 1024 }),
+    color: "white"
   });
-  const img = card.build();
 
-  return msg.channel.send(new MessageAttachment(img, "rank.png"));
+  return msg.channel.send(new Discord.MessageAttachment(card, "rankcard.png"));
 };
 
 module.exports.help = {
