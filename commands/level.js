@@ -22,18 +22,17 @@ exports.run = (client, msg, args) => {
   ); // 2
   const pointsNeeded = xpForLevel(curLevel + 1);
   const Level = client.profile.get(`${msg.guild.id}-${user.id}`, "level");
-  const avatar = userm.displayAvatarURL({ format: "png" });
+  const avatar = "https://ibb.co/CQJCkXN";
 
-  const card = new canvacord.Rank({
-    Username: user.username,
-    Discriminator: user.discriminator,
-    Level: Level,
-    CurrentXP: curLevel.toString(),
-    RequiredXP: pointsNeeded.toString(),
-    Status: user.presence.status,
-    Avatar: avatar,
-    color: "white"
-  });
+  const card = new canvacord.Rank()
+    .setUsername(user.username)
+    .setDiscriminator(user.discriminator)
+    .setLevel(Level)
+    .setCurrentXP(curLevel)
+    .setRequiredXP(pointsNeeded)
+    .setStatus(user.presence.status)
+    .setAvatar(avatar)
+    .setProgressBar("FFD300");
 
   card.build();
   const attachment = new Discord.MessageAttachment(card, "RankCard.png");
