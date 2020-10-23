@@ -21,10 +21,9 @@ exports.run = (client, msg, args) => {
   const card = new canvacord.Rank()
     .setUsername(user.username)
     .setDiscriminator(user.discriminator)
-    .setRank(rank)
-    .setLevel(level)
-    .setCurrentXP(exp)
-    .setRequiredXP(neededXP)
+    .setLevel(curLevel)
+    .setCurrentXP(calcLevel)
+    .setRequiredXP(pointsNeeded)
     .setStatus(user.presence.status)
     .setAvatar(user.displayAvatarURL({ format: "png", size: 1024 }));
 
