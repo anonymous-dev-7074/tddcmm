@@ -12,6 +12,8 @@ exports.run = (client, msg, args) => {
     ) ||
     msg.guild.members.cache.get(args[0]);
 
+  var userm = msg.mentions.users.first() || msg.author;
+
   if (!user) user = msg.author;
   const xpForLevel = level => Math.ceil(level * level * 100);
   const calcLevel = xp => Math.floor(0.1 * Math.sqrt(xp));
@@ -20,6 +22,8 @@ exports.run = (client, msg, args) => {
   ); // 2
   const pointsNeeded = xpForLevel(curLevel + 1);
   const Level = client.profile.get(`${msg.guild.id}-${user.id}`, "level");
+  const avatar = userm.displayAvatarURL({ format: "png" });
+
   const card = new canvacord.Rank({
     Username: user.username,
     Discriminator: user.discriminator,
@@ -27,11 +31,13 @@ exports.run = (client, msg, args) => {
     CurrentXP: curLevel.toString(),
     RequiredXP: pointsNeeded.toString(),
     Status: user.presence.status,
-    Avatar: user.displayAvatarURL({ format: "png", size: 1024 }),
+    Avatar: avatar,
     color: "white"
   });
 
-  return msg.channel.send(new Discord.MessageAttachment(card, "rankcard.png"));
+  card.build();
+  const attachment = new Discord.MessageAttachment(card, "RankCard.png");
+  msg.channel.send(attachment);
 };
 
 module.exports.help = {
