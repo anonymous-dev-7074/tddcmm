@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const Canvacord = require("canvacord");
+const xp = require("better-sqlite3");
 
 exports.run = (client, msg, args) => {
   let user =
@@ -34,7 +35,20 @@ exports.run = (client, msg, args) => {
     );
 
   msg.channel.send(embed);
-  
+  let everyxp = xp
+    .all()
+    .filter(i =>
+      i.ID.startsWithcalcLevel(
+        client.profile.get(`${msg.guild.id}-${user.id}`, "levelpoints")
+      )
+    )
+    .sort((a, b) => b.data - a.data);
+
+  var rank = everyxp
+    .map(x => x.ID)
+    .indexOfcalcLevel(
+      client.profile.get(`${msg.guild.id}-${user.id}`, "levelpoints")
+    );
 
   var rankcard = Canvacord.rank({
     username: user.username,
