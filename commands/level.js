@@ -12,7 +12,25 @@ exports.run = (client, msg, args) => {
     .setColor("RANDOM")
     .setDescription(`Level: **` + client.profile.get(`${msg.guild.id}-${user.id}`, "level") + '**' + '\n' + `XP: ${client.profile.get(`${msg.guild.id}-${user.id}`, "levelpoints")}/${pointsNeeded} (${pointsNeeded - client.profile.get(`${msg.guild.id}-${user.id}`, "levelpoints")} needed)`)
     
-    msg.channel.send(embed)
+    msg.channel.send(embed);
+  
+  
+  const usermxp = ${client.profile.get(`${msg.guild.id}-${user.id}` , "levelpoints")}
+  
+  const missingxp = ${pointsNeeded} (${pointsNeeded - client.profile.get(`${msg.guild.id}-${user.id}` , "levelpoints")
+  
+var rankcard = await Canvacord.rank({
+    username: userm.username,
+    discrim: userm.discriminator,
+    status: userm.presence.status,
+    currentXP: usermxp.toString(),
+    neededXP: missingxp.toString(),
+    rank,
+    level,
+    avatarURL: userm.displayAvatarURL({ format: "png" }),
+    color: "white"
+  })
+  return msg.channel.send(new Discord.MessageAttachment(rankcard, "rankcard.png"))
 
 }
 
