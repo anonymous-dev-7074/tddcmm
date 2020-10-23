@@ -11,7 +11,7 @@ exports.run = (client, msg, args) => {
  
     let user = msg.guild.members.cache.find(mem => mem.user.username === args[0]) || msg.guild.members.cache.get(args[0]) || msg.mentions.users.first()
     client.profile.delete(`${msg.guild.id}-${msg.author.id}`)
-    msg.channel.send(`I've successfully reset ${user.tag}.`);
+    msg.channel.send(`I've successfully reset ${user.user.tag}.`);
 
 
 }
