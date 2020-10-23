@@ -18,7 +18,8 @@
     "enmap": "^5.2.4",
     "moment": "^2.24.0",
     "ms": "^2.1.2",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "canvacord": "^5.0.6"
   },
   "engines": {
     "node": "12.x"

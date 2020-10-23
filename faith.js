@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const Canvacord = require("canvacord");
 let beingApplied = new Set();
 const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL"],
