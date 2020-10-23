@@ -14,17 +14,8 @@ exports.run = (client, msg, args) => {
     
     msg.channel.send(embed)
 
-vr rankcard = await Canvacord.rank({
-    username: userm.username,
-    discrim: userm.discriminator,
-    status: userm.presence.status,
-    currentXP: ${client.profile.get(`${msg.guild.id}-${user.id}`, "levelpoints")}.toString(),
-    neededXP: missingxp.toString(),
-    rank,
-    level,
-    avatarURL: userm.displayAvatarURL({ format: "png" }),
-    color: "white"
-  return msg.channel.send(new Discord.MessageAttachment(rankcard, 
+}
+
 module.exports.help = {
     name:"level",
     usage: "!level"
