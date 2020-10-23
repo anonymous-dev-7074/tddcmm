@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const Canvacord = require("canvacord");
 
 exports.run = (client, msg, args) => {
   let user =
@@ -33,16 +34,17 @@ exports.run = (client, msg, args) => {
     );
 
   msg.channel.send(embed);
+  
 
   var rankcard = Canvacord.rank({
-    username: userm.username,
-    discrim: userm.discriminator,
-    status: userm.presence.status,
+    username: user.username,
+    discrim: user.discriminator,
+    status: user.presence.status,
     currentXP: curLevel.toString(),
     neededXP: pointsNeeded.toString(),
     rank,
-    level,
-    avatarURL: userm.displayAvatarURL({ format: "png" }),
+    curLevel,
+    avatarURL: user.displayAvatarURL({ format: "png" }),
     color: "white"
   });
   return msg.channel.send(
