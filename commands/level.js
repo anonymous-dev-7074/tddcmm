@@ -17,19 +17,19 @@ exports.run = (client, msg, args) => {
     client.profile.get(`${msg.guild.id}-${user.id}`, "levelpoints")
   ); // 2
   const pointsNeeded = xpForLevel(curLevel + 1);
-
+  const Level = client.profile.get(`${msg.guild.id}-${user.id}`, "level");
   const card = new canvacord.Rank()
-    .setUsername(user.username)
-    .setDiscriminator(user.discriminator)
-    .setLevel(curLevel)
-    .setCurrentXP(calcLevel)
-    .setRequiredXP(pointsNeeded)
-    .setStatus(user.presence.status)
-    .setAvatar(user.displayAvatarURL({ format: "png", size: 1024 }));
+    Username : user.username
+    Discriminator : user.discriminator
+    Level : Level
+    CurrentXP : curLevel.toString()
+    RequiredXP : pointsNeeded.toString()
+    Status : user.presence.status
+    Avatar : user.displayAvatarURL({ format: "png", size: 1024 }));
 
   const img = card.build();
 
-  return message.channel.send(new MessageAttachment(img, "rank.png"));
+  return msg.channel.send(new MessageAttachment(img, "rank.png"));
 };
 
 module.exports.help = {
