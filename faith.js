@@ -532,10 +532,10 @@ String.prototype.replaceAll = function(search, replacement) {
 
 client.on("voiceStateUpdate", (oldMember, newMember) => {
   if (
-    !client.channels.get(
+    !client.channels.cache.get(
       client.settings.get(oldMember.guild.id, "userchannelcreate").channel
     ) ||
-    !client.channels.get(
+    !client.channels.cache.get(
       client.settings.get(oldMember.guild.id, "userchannelcreate").category
     )
   )
