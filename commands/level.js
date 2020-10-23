@@ -33,7 +33,6 @@ exports.run = (client, msg, args) => {
   return message.channel.send(new MessageAttachment(img, "rank.png"));
 };
 
-msg.channel.send(embed);
 module.exports.help = {
   name: "level",
   usage: "!level"
