@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 const { MessageAttachment } = require("discord.js");
 const canvacord = require("canvacord");
 
-exports.run  = (client, msg, args) => {
+exports.run = (client, msg, args) => {
   let user =
     msg.mentions.users.first() ||
     msg.guild.members.cache.find(
@@ -17,7 +17,7 @@ exports.run  = (client, msg, args) => {
     client.profile.get(`${msg.guild.id}-${user.id}`, "levelpoints")
   ); // 2
   const pointsNeeded = xpForLevel(curLevel + 1);
-  
+
   const card = new canvacord.Rank()
     .setUsername(user.username)
     .setDiscriminator(user.discriminator)
@@ -29,31 +29,11 @@ exports.run  = (client, msg, args) => {
     .setAvatar(user.displayAvatarURL({ format: "png", size: 1024 }));
 
   const img = card.build();
-  
+
   return message.channel.send(new MessageAttachment(img, "rank.png"));
 };
-  let embed = new MessageEmbed()
-    .setAuthor(user.tag, user.displayAvatarURL)
-    .setColor("RANDOM")
-    .setDescription(
-      `Level: **` +
-        client.profile.get(`${msg.guild.id}-${user.id}`, "level") +
-        "**" +
-        "\n" +
-        `XP: ${client.profile.get(
-          `${msg.guild.id}-${user.id}`,
-          "levelpoints"
-        )}/${pointsNeeded} (${pointsNeeded -
-          client.profile.get(
-            `${msg.guild.id}-${user.id}`,
-            "levelpoints"
-          )} needed)`
-    );
 
-  msg.channel.send(embed);
-}
-}
-
+msg.channel.send(embed);
 module.exports.help = {
   name: "level",
   usage: "!level"
