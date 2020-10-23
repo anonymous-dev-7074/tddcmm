@@ -508,7 +508,7 @@ client.on("guildMemberAdd", member => {
       return;
     }
   }
-  if (!member.guild.channels.get(channel)) return;
+  if (!member.guild.channels.cache.get(channel)) return;
 
   if (array[1].embed === true) {
     client.channels.get(channel).send(embed);
