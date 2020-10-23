@@ -22,7 +22,6 @@ exports.run = (client, msg, args) => {
   ); // 2
   const pointsNeeded = xpForLevel(curLevel + 1);
   const Level = client.profile.get(`${msg.guild.id}-${user.id}`, "level");
-  const avatar = "https://ibb.co/CQJCkXN";
 
   const card = new canvacord.Rank()
     .setUsername(user.username)
@@ -31,14 +30,14 @@ exports.run = (client, msg, args) => {
     .setCurrentXP(curLevel)
     .setRequiredXP(pointsNeeded)
     .setStatus(user.presence.status)
-    .setAvatar(avatar)
+    .setAvatar(user.displayAvatarURL)
     .setProgressBar("FFD300");
 
-  card.build();
-  const attachment = new Discord.MessageAttachment(card, "RankCard.png");
-  msg.channel.send(attachment);
+  card.build().then(data => {
+    const attachment = new Discord.MessageAttachment(card, "RankCard.png");
+    msg.channel.send(attachment);
+  });
 };
-
 module.exports.help = {
   name: "level",
   usage: "!level"
