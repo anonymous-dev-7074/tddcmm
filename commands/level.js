@@ -36,22 +36,11 @@ exports.run = (client, msg, args) => {
 
   const img = card.build();
 
-  return message.channel.send(new MessageAttachment(img, "rank. .setAuthor(member.tag, member.displayAvatarURL)
- )
-  
-    `Level: **` +ofile.get(`${msg.guild.id}-${user.id}`, "level") +
-      "**" +
-      "\n" +
-      `XP: ${client.profile.get(
-        `${msg.guild.id}-${user.id}`,
- ts"
-      )}/${pointsNeeded} (${pont.profile.get(
-        er.id}`,
-          "levelpoints"
-  
+  return message.channel.send(new MessageAttachment(img, "rank.png"));
 
-msg.channel.send(embed);
-module.exports.help = {
-  name: "level",
-  usage: "!level"
+  msg.channel.send(embed);
+  module.exports.help = {
+    name: "level",
+    usage: "!level"
+  };
 };
