@@ -32,7 +32,7 @@ exports.run = (client, msg, args) => {
 
   client.settings.push(msg.guild.id, role, "noxproles");
   msg.channel.send(
-    `users with the role ${msg.guild.roles.get(role)} will not gain xp anymore.`
+    "users with the role (${msg.guild.roles.get(role)}) will not gain xp anymore."
   );
 };
 
