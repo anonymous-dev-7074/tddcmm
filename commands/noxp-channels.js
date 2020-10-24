@@ -1,7 +1,7 @@
 let { MessageEmbed } = require("discord.js");
 const discord = require("discord.js");
 const { util } = require("discord.js-commando");
-exports.run = (client, msg, args) => {
+exports.run = async (client, msg, args) => {
   if (!msg.member.hasPermission("ADMINISTRATOR"))
     return msg.channel
       .send("You do not have the required permission to use this command.")
@@ -21,15 +21,19 @@ exports.run = (client, msg, args) => {
 
   let page = args[0];
   let thing = 1;
-  let array = client.settings.get(msg.guild.id, msg.channel.id, "noxpchannels");
+  let array = await client.settings.get(client.settings.get(msg.guild.id,  "noxpchannels")
+  
+  );
   const paginated = util.paginate(array, page, Math.floor(30));
   let embed = new MessageEmbed().setAuthor(
     `No XP gaining channels for ${msg.guild.name}.`,
     msg.guild.iconURL
 
-     .setColor("RANDOM")
+      .setColor("RANDOM")
       .setDescription(
-        paginated.items.map(x => `${msg.guild.roles.cache.get(x).toString()}`)
+        paginated.items.map(
+          x => `${msg.guild.channels.cache.get(x).toString()}`
+        )
       )
   );
   msg.channel.send(embed);
