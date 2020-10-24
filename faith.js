@@ -175,8 +175,8 @@ client.on("message", async msg => {
     array2.forEach(r => {
       let member = msg.guild.member(msg.author);
 
-      let roletofind = msg.guild.roles.find(n => n.name === r);
-      if (member.roles.has(r)) {
+      let roletofind = msg.guild.roles.cache.find(n => n.name === r);
+      if (member.roles.cache.find(r => r.name === r)) {
         points = 0;
       }
     });
