@@ -21,21 +21,13 @@ exports.run = async (client, msg, args) => {
 
   let page = args[0];
   let thing = 1;
-  let array = await client.settings.get(client.settings.get(msg.guild.id,  "noxpchannels")
+  let array = await client.settings.get(msg.guild.id,  "noxpchannels")
   
-  );
   const paginated = util.paginate(array, page, Math.floor(30));
-  let embed = new MessageEmbed().setAuthor(
-    `No XP gaining channels for ${msg.guild.name}.`,
-    msg.guild.iconURL
-
-      .setColor("RANDOM")
-      .setDescription(
-        paginated.items.map(
-          x => `${msg.guild.channels.cache.get(x).toString()}`
-        )
-      )
-  );
+  let embed = new MessageEmbed()
+  .setAuthor(`No XP gaining channels for ${msg.guild.name}.`, msg.guild.iconURL)
+   .setColor("RANDOM")
+      .setDescription(paginated.items.map(x => `${msg.guild.channels.cache.get(x).toString()}`));
   msg.channel.send(embed);
 };
 
