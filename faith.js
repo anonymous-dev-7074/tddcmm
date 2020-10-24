@@ -156,7 +156,7 @@ client.on("message", async msg => {
   );
 
   client.settings.get(msg.guild.id, "doublexproles").forEach(r => {
-    if (msg.guild.member(msg.author).roles.has(r)) {
+    if (msg.guild.member(msg.author).roles.cache.find(r => r.name === r)) {
       points = points * 2;
     }
   });
