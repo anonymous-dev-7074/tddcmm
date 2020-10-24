@@ -34,7 +34,7 @@ exports.run = (client, msg, args) => {
     .setProgressBar("FFD300");
 
   card.build().then(data => {
-    const attachment = new Discord.MessageAttachment(card, "RankCard.png");
+    const attachment = new Discord.MessageAttachment(data, "RankCard.png");
     msg.channel.send(attachment);
   });
 };
