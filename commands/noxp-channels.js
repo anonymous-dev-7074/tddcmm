@@ -10,11 +10,18 @@ exports.run = (client, msg, args) => {
         }, 3000);
       });
 
-  let channels = client.settings.get(msg.guild.id, channel.id, "noxpchannels");
+  let channel =
+    msg.guild.channels.cache.find(c => c.name === args[0]) ||
+    msg.mentions.channels.first();
+
+  //let channels = client.settings.get(msg.guild.id, channel.id, "noxpchannels");
 
   let embed = new discord.MessageEmbed()
     .setTitle("THESE ARE THE CHANNELS WHICH WERE SETTED FOR NO XP GAIN")
-    .setDescription(channels)
+    .setDescription(
+      client.settings.get(msg.guild.id, msg.channel.id, "noxpchannels")
+    )
+
     .setColor("#000000");
 
   msg.channel.send(embed);
