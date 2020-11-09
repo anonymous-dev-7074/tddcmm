@@ -1,5 +1,417 @@
-exports.run = (client, msg, args) => {
-  
+const {MessageEmbed} = require("discord.js"),
+      db = require("quick.db")
+exports.run = async (client, msg, args) => {
+  let prefix = db.get(`prefix_${msg.guild.id}`)
+  if(prefix === null) prefix = ">>";
+   if (!msg.member.hasPermission("ADMINISTRATOR")) {
+      const embed2 = new MessageEmbed()
+        .setColor("RED")
+        .setDescription(
+          "**You Dont Have Permission To User This Command. Required Permission** `ADMINISTRATOR`"
+        );
+      return msg.channel.send(embed2);
+    }
+    if (!args[0]) {
+      const embed = new MessageEmbed()
+        .setColor("#00FF0")
+        .setTitle("Server Welcome Setup")
+        .setDescription("To use these commands, do `"+ prefix + "welcome <command>`")
+        .addField(
+          "Commands",
+          "`channel`, `font`, `image`, `imageremove`, `message`, `messageremove`, `color`, `colorremove`, `autorole`, `embed`, `embedremove`, `disable`, `test`"
+        )
+        .setFooter(client.user.username + " | Welcome")
+        .setTimestamp();
+      msg.channel.send(embed);
+    } else if (args[0].toLowerCase() === "channel") {
+      //---------------------CHANNEL-----------------------------//
+      let channel = msg.mentions.channels.first();
+      if (!channel) {
+        const emb = new MessageEmbed()
+          .setColor("RED")
+          .setTitle("<:Cross:744161251743105035> Channel Missing")
+          .setDescription("Please Mention A Channel To Set As Welcome Channel!")
+          .setTimestamp();
+        return msg.channel.send(emb);
+      } else {
+        db.set(`welchannl1_${msg.guild.id}`, channel.id);
+        const emb = new MessageEmbed()
+          .setColor("#00FF00")
+          .setDescription(`Welcome Channel Seted As ${channel}`)
+          .setTitle("<:yesk:744161409016922123> Welcome Channel Seted")
+          .setTimestamp();
+        msg.channel.send(emb);
+        //-------------------CHANNL END-------------------------//
+      }
+    } else if (args[0].toLowerCase() === "image") {
+      //---------------------BACKGROUND-------------------------//
+      let chan = db.get(`welchannl1_${msg.guild.id}`);
+      if (chan == null) {
+        return msg.channel.send(
+          new MessageEmbed()
+            .setColor("RED")
+            .setTitle("<:Cross:744161251743105035> You Have Not Enable Welcome")
+            .setDescription("You Need To Enable Welcome To Set Image!")
+            .setTimestamp()
+        );
+      }
+      const URL = args[1];
+      if (!URL) {
+        let em = new MessageEmbed()
+          .setColor("RED")
+          .setTitle("<:Cross:744161251743105035> Welcome Image Error")
+          .setDescription("Error Adding Image")
+          .addField(
+            "Reason",
+            "Image requires at least One (1) argument. `"+ prefix + "welcome image [url]`"
+          )
+          .setTimestamp();
+        msg.channel.send(em);
+      } else {
+        db.set(`welback1_${msg.guild.id}`, URL);
+        const emb = new MessageEmbed()
+          .setColor("#00FF00")
+          .setTitle("<:yesk:744161409016922123> Welcome Image Seted As")
+          .setImage(URL)
+          .setTimestamp();
+        msg.channel.send(emb);
+        msg.delete();
+      }
+      //----------------------BACKGROUND END----------------------------//
+    } else if (args[0].toLowerCase() === "imageremove") {
+      //---------------------BACKGROUND REMOVE-------------------------//
+      let welback = db.get(`welback1_${msg.guild.id}`);
+      if (welback == null) {
+        return msg.channel.send(
+          new MessageEmbed()
+            .setColor("RED")
+            .setTitle(
+              "<:Cross:744161251743105035> You Have Not Enable Welcome Image"
+            )
+            .setDescription("You Have Not Enabled Image To Disable!")
+            .setTimestamp()
+        );
+      } else {
+        db.delete(`welback1_${msg.guild.id}`);
+        const emb = new MessageEmbed()
+          .setColor("#00FF00")
+          .setTitle("<:yesk:744161409016922123> Welcome Image Disable")
+          .setDescription("You Have Disabled Your Welcome Image Succesfully!")
+          .setTimestamp();
+        msg.channel.send(emb);
+      }
+      //---------------------BACKGROUND REMOVE END-----------------------//
+    } else if (args[0].toLowerCase() === "test") {
+      //------------------------TEST----------------------------//
+      let chan = db.get(`welchannl1_${msg.guild.id}`);
+      let welback = db.get(`welback1_${msg.guild.id}`);
+      let welmsg = db.get(`welmsg1_${msg.guild.id}`);
+      let welc = db.get(`welcolor1_${msg.guild.id}`);
+      let user = db.get(`usrcolor1_${msg.guild.id}`);
+      let autou = db.get(`urole_${msg.guild.id}`)
+      let autob = db.get(`brole_${msg.guild.id}`)
+      let dm = db.get(`weldm_${msg.guild.id}`)
+      let en = db.get(`emb_${msg.guild.id}`)
+      if (chan == null) {
+        return msg.channel.send(
+          new MessageEmbed()
+            .setColor("RED")
+            .setTitle("<:Cross:744161251743105035> You Have Not Enable Welcome")
+            .setDescription("You Need To Enable Welcome To Test")
+            .setTimestamp()
+        );
+      } else {
+        msg.client.emit(
+          "guildMemberAdd",
+          msg.member || (await msg.guild.fetchMember(msg.author))
+        );
+        const emb = new MessageEmbed()
+          .setColor("#00FF00")
+          .setTitle("<:yesk:744161409016922123> Welcome Test Sent")
+          .setDescription(
+            `Oki I Have Fake Your Joining The Server To Check Out The Setting. Here Is Your Setting:\n
+            ${
+              chan
+                ? "<:yesk:744161409016922123>"
+                : "<:Cross:744161251743105035>"
+            } **Welcome Channel: **${
+              chan
+                ? `Welcome Channel Is Seted As <#${chan}>`
+                : "No Welcome Channel Is Set, `"+ prefix + "welcome channel` To Set One"
+            }\n${
+              welmsg
+                ? "<:yesk:744161409016922123>"
+                : "<:nun:744161409117454456>"
+            } **Welcome Message: **${
+              welmsg
+                ? `Welcome Message Is Seted`
+                : "No Welcome Message, `"+ prefix + "welcome message` To Set One"
+            }\n${
+              welback
+                ? "<:yesk:744161409016922123>"
+                : "<:nun:744161409117454456>"
+            } **Welcome Image: **${
+              welback
+                ? `Welcome Image Is Seted`
+                : "No Welcome Image, `"+ prefix + "welcome Image` To Set One"
+            }\n${
+              welc ? "<:yesk:744161409016922123>" : "<:nun:744161409117454456>"
+            } **Welcome Text Color:** ${
+              welc
+                ? `Welcome Text Color Is Seted`
+                : "No Welcome Text Is Seted, `"+ prefix + "welcome color welcome` To Set One"
+            }\n${
+              user ? "<:yesk:744161409016922123>" : "<:nun:744161409117454456>"
+            } **User Text Color:** ${
+              user
+                ? `User Text Color Is Seted`
+                : "No User Text Is Seted, `"+ prefix + "welcome color user` To Set One"
+            }\n${
+              autou || autob
+              ?
+              "<:yesk:744161409016922123>" : "<:nun:744161409117454456>"
+            } **Autorole:** ${
+             autou || autob
+              ?
+            "Autorole Seted" : "No Autorole Seted, `"+ prefix + "welcome autorole` To Set One."
+            }\n${
+              en ? "<:yesk:744161409016922123>" : "<:nun:744161409117454456>"
+            } **Welcome Embed:** ${
+              en ? "Welcome Embed Is Seted" : "Welcome Embed Is Not Enabled, `"+ prefix + "welcome embed` To Set One."
+            }`)
+          .setTimestamp();
+        msg.channel.send(emb);
+      }
+      //----------------------TEST END-----------------------//
+    } else if (args[0].toLowerCase() === "disable") {
+      //--------------------DISABLE----------------------//
+      let chan = db.get(`welchannl1_${msg.guild.id}`);
+      if (chan == null) {
+        return msg.channel.send(
+          new MessageEmbed()
+            .setColor("RED")
+            .setTitle("<:Cross:744161251743105035> You Have Not Enable Welcome")
+            .setDescription("You Need To Enable Welcome To Disable!")
+            .setTimestamp()
+        );
+      } else {
+        db.delete(`welchannl1_${msg.guild.id}`);
+        db.delete(`welback1_${msg.guild.id}`);
+        db.delete(`welmsg1_${msg.guild.id}`);
+        db.delete(`weldm_${msg.guild.id}`)
+        db.delete(`emb_${msg.guild.id}`)
+        const emb = new MessageEmbed()
+          .setColor("#00FF00")
+          .setTitle("<:yesk:744161409016922123> Disable Success")
+          .setDescription("You Have Disable Welcome Succesfully")
+          .setTimestamp();
+        msg.channel.send(emb);
+      }
+      //-------------------DISABLE END-----------------------//
+    } else if (args[0].toLowerCase() === "message") {
+      //------------------MESSAGE--------------------//
+      let msg = args.slice(1).join(" ");
+      if (!msg) {
+        return msg.channel.send(
+          new MessageEmbed()
+            .setColor("RED")
+            .setTitle("<:Cross:744161251743105035> Welcome Message Error")
+            .setDescription("Please Specify A Message To Be Set In Welcome!")
+            .addField(
+              "Welcome Variables",
+              `**{user}** - Mentions The User On Join.\n**{username}** - Member Username With Tag!\n**{server}** - Gives Server Name.\n**{membercount}** - Gets Server Member Count.\n**{:emoji}** - Show a server emoji by replacing with name. Ex. \`{:Alix}\``
+            )
+            .setFooter(client.user.username + ` |Welcome`)
+            .setTimestamp()
+        );
+      } else {
+        db.set(`welmsg1_${msg.guild.id}`, msg);
+        if (msg) {
+          msg = msg.replace(/{user}/g, msg.author);
+          msg = msg.replace(/{server}/g, msg.guild.name);
+          msg = msg.replace(/{membercount}/g, msg.guild.memberCount);
+          msg = msg.replace(/{username}/g, msg.author.tag);
+          let matches = msg.match(/{:([a-zA-Z0-9]+)}/g);
+          if(!matches) matches = msg
+          for (const match of matches) {
+            const rep = await msg.guild.emojis.cache.find(
+              (emoji) => emoji.name === match.substring(2, match.length - 1)
+            );
+            if (rep) msg = msg.replace(match, rep);
+          }
+        }
+        const emn = new MessageEmbed()
+          .setColor("#00FF00")
+          .setTitle("<:yesk:744161409016922123> Welcome Message Seted!")
+          .addField("Welcome Message Seted As", msg)
+          .setFooter("This Are For Example!");
+        msg.channel.send(emn);
+      }
+      //--------------MESSAGE END---------------------//
+    } else if (args[0].toLowerCase() === "messageremove") {
+      let msg = db.get(`welmsg1_${msg.guild.id}`);
+      if (msg == null) {
+        return msg.channel.send(
+          new MessageEmbed()
+            .setColor("RED")
+            .setTitle(
+              "<:Cross:744161251743105035> You Have Not Enable Welcome Message"
+            )
+            .setDescription("You Need To Enable Welcome Message To Disable")
+            .setTimestamp()
+        );
+      } else {
+        db.delete(`welmsg1_${msg.guild.id}`);
+        const emb = new MessageEmbed()
+          .setColor("#00FF00")
+          .setTitle("<:yesk:744161409016922123> Disable Success")
+          .setDescription("You Have Disable Welcome Message Succesfully")
+          .setTimestamp();
+        msg.channel.send(emb);
+      }
+    } else if (args[0].toLowerCase() === "color") {
+      //----------------------COLOR--------------------------//
+      if (!args[1]) {
+        const emb = new MessageEmbed()
+          .setColor("RED")
+          .setTitle("Welcome Text Color")
+          .addField(
+            prefix + "welcome color welcome",
+            "```Change The Welcome Text Color, Ex. "+ prefix + "welcome color welcome #00FF00```"
+          )
+          .addField(
+            prefix + "welcome color user",
+            "```Change The Username Text Color, Ex. "+ prefix + "welcome color user #00FF00```"
+          )
+          .setTimestamp();
+        return msg.channel.send(emb);
+      } else if (args[1].toLowerCase() === "welcome") {
+        let color = args[2];
+        if (!color) {
+          const h = new MessageEmbed()
+            .setColor("RED")
+            .setTitle("<:Cross:744161251743105035> Color Error")
+            .setDescription(
+              "You Have Not Specified The Color To Be Put In Welcome Text"
+            )
+            .setTimestamp();
+          return msg.channel.send(h);
+        } else {
+          db.set(`welcolor1_${msg.guild.id}`, color);
+          const h2 = new MessageEmbed()
+            .setColor(color)
+            .setTitle("<:yesk:744161409016922123> Color Success")
+            .setDescription(
+              `<-- Your Welcome Text Is Seted As Embed Color, \`${color}\``
+            )
+            .setTimestamp();
+          msg.channel.send(h2);
+        }
+      } else if (args[1].toLowerCase() === "user") {
+        let color = args[2];
+        if (!color) {
+          const h = new MessageEmbed()
+            .setColor("RED")
+            .setTitle("<:Cross:744161251743105035> Color Error")
+            .setDescription(
+              "You Have Not Specified The Color To Be Put In User Text"
+            )
+            .setTimestamp();
+          return msg.channel.send(h);
+        } else {
+          db.set(`usrcolor1_${msg.guild.id}`, color);
+          const h2 = new MessageEmbed()
+            .setColor(color)
+            .setTitle("<:yesk:744161409016922123> Color Success")
+            .setDescription(
+              `<-- Your User Text Is Seted As Embed Color, \`${color}\``
+            )
+            .setTimestamp();
+          msg.channel.send(h2);
+        }
+      }
+      //---------------------------COLOR END-----------------------------//
+    } else if (args[0].toLowerCase() === "colorremove") {
+      if (!args[1]) {
+        const emb = new MessageEmbed()
+          .setColor("RED")
+          .setTitle("Welcome Text Color Remove")
+          .addField(
+            prefix + "welcome colorremove welcome",
+            "```Removes The Welcome Text Color, Ex. "+ prefix + "welcome colorremove welcome```"
+          )
+          .addField(
+            prefix + "welcome colorremove user",
+            "```Removes The Username Text Color, Ex. "+ prefix + "welcome colorremove user```"
+          )
+          .setTimestamp();
+        return msg.channel.send(emb);
+      } else if (args[1].toLowerCase() === "welcome") {
+        let welc = db.get(`welcolor1_${msg.guild.id}`);
+        if (!welc) {
+          const h = new MessageEmbed()
+            .setColor("RED")
+            .setTitle("<:Cross:744161251743105035> Command Error")
+            .setDescription(
+              "You Have Not Enabled Welcome Text Color To Disable"
+            )
+            .setTimestamp();
+          return msg.channel.send(h);
+        } else {
+          db.delete(`welcolor1_${msg.guild.id}`);
+          const h2 = new MessageEmbed()
+            .setColor("#00FF00")
+            .setTitle("<:yesk:744161409016922123> Color Removed")
+            .setDescription(`Your Welcome Text Color Has Been Removed`)
+            .setTimestamp();
+          msg.channel.send(h2);
+        }
+      } else if (args[1].toLowerCase() === "user") {
+        let welc = db.get(`usrcolor1_${msg.guild.id}`);
+        if (!welc) {
+          const h = new MessageEmbed()
+            .setColor("RED")
+            .setTitle("<:Cross:744161251743105035> Command Error")
+            .setDescription("You Have Not Enabled User Text Color To Disable")
+            .setTimestamp();
+          return msg.channel.send(h);
+        } else {
+          db.delete(`usrcolor1_${msg.guild.id}`);
+          const h2 = new MessageEmbed()
+            .setColor("#00FF00")
+            .setTitle("<:yesk:744161409016922123> Color Removed")
+            .setDescription(`Your User Text Color Has Been Removed`)
+            .setTimestamp();
+          msg.channel.send(h2);
+        }
+      }
+    }else if(args[0].toLowerCase() === "embed"){
+      db.set(`emb_${msg.guild.id}`, true)
+      const gg = new MessageEmbed()
+      .setColor("#00FF00")
+      .setDescription("You Have Successfully Enabled Welcome Embed")
+      .setTitle("<:yesk:744161409016922123> Welcome Embed")
+      .setTimestamp()
+      msg.channel.send(gg)
+    }else if(args[0].toLowerCase() === "embedremove"){
+      let embed = db.get(`emb_${msg.guild.id}`)
+      if(embed == null){
+        let h = new MessageEmbed()
+        .setColor("RED")
+        .setDescription("You Have Not Enabled Welcome Embed To Disable")
+        .setTitle("<:Cross:744161251743105035> Embed Error")
+        .setTimestamp()
+        return msg.channel.send(h)
+      }else {
+        db.delete(`emb_${msg.guild.id}`)
+        const emb = new MessageEmbed()
+          .setColor("#00FF00")
+          .setTitle("<:yesk:744161409016922123> Disable Success")
+          .setDescription("You Have Disable Welcome Embed Succesfully")
+          .setTimestamp();
+        msg.channel.send(emb);
+      }
+    }
 }
 exports.help = {
   name: "welcome",
