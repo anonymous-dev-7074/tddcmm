@@ -35,10 +35,10 @@ module.exports = {
   
     const kk = new MessageEmbed()
     .setColor("YELLOW")
-    .setTiTle("SUCCESFULL")
+    .setTitle("SUCCESFULL")
     .setDescription("LEVEL IMAGE WAS SUCCESFULLY REMOVED GG")
     msg.channel.send(kk)
-    db.delete(`lvlback_${msg.guilf.id}
+    db.delete(`lvlback_${msg.guild.id}`)
   }
 }}
   module.exports.help = {
