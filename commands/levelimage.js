@@ -12,7 +12,7 @@ module.exports = {
     .setTimestamp()
     msg.channel.send(embed)
   }else if(args[0].toLowerCase() === "image"){
-            const image = msg.args[1]
+            const image = args[1]
     
             if(!image){
               const embed = new MessageEmbed()
