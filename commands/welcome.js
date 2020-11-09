@@ -210,8 +210,8 @@ exports.run = async (client, msg, args) => {
       //-------------------DISABLE END-----------------------//
     } else if (args[0].toLowerCase() === "message") {
       //------------------MESSAGE--------------------//
-      let msg = args.slice(1).join(" ");
-      if (!msg) {
+      let msg1 = args.slice(1).join(" ");
+      if (!msg1) {
         return msg.channel.send(
           new MessageEmbed()
             .setColor("RED")
@@ -225,32 +225,32 @@ exports.run = async (client, msg, args) => {
             .setTimestamp()
         );
       } else {
-        db.set(`welmsg1_${msg.guild.id}`, msg);
-        if (msg) {
-          msg = msg.replace(/{user}/g, msg.author);
-          msg = msg.replace(/{server}/g, msg.guild.name);
-          msg = msg.replace(/{membercount}/g, msg.guild.memberCount);
-          msg = msg.replace(/{username}/g, msg.author.tag);
-          let matches = msg.match(/{:([a-zA-Z0-9]+)}/g);
-          if(!matches) matches = msg
+        db.set(`welmsg1_${msg.guild.id}`, msg1);
+        if (msg1) {
+          msg1 = msg1.replace(/{user}/g, msg.author);
+          msg1 = msg1.replace(/{server}/g, msg.guild.name);
+          msg1 = msg1.replace(/{membercount}/g, msg.guild.memberCount);
+          msg1 = msg1.replace(/{username}/g, msg.author.tag);
+          let matches = msg1.match(/{:([a-zA-Z0-9]+)}/g);
+          if(!matches) matches = msg1
           for (const match of matches) {
             const rep = await msg.guild.emojis.cache.find(
               (emoji) => emoji.name === match.substring(2, match.length - 1)
             );
-            if (rep) msg = msg.replace(match, rep);
+            if (rep) msg1 = msg1.replace(match, rep);
           }
         }
         const emn = new MessageEmbed()
           .setColor("#00FF00")
           .setTitle("<:yesk:744161409016922123> Welcome Message Seted!")
-          .addField("Welcome Message Seted As", msg)
+          .addField("Welcome Message Seted As", msg1)
           .setFooter("This Are For Example!");
         msg.channel.send(emn);
       }
       //--------------MESSAGE END---------------------//
     } else if (args[0].toLowerCase() === "messageremove") {
-      let msg = db.get(`welmsg1_${msg.guild.id}`);
-      if (msg == null) {
+      let msg1 = db.get(`welmsg1_${msg.guild.id}`);
+      if (msg1 == null) {
         return msg.channel.send(
           new MessageEmbed()
             .setColor("RED")
