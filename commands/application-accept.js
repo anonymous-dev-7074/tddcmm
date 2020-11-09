@@ -16,8 +16,8 @@ exports.run = async (client, msg, args) => {
     let index = arr.findIndex(obj => obj.author === userAccept)
     if (arr.findIndex(obj => obj.author === userAccept) < 0) return msg.reply('I could not find an application by a user with that ID.')
 
-    if(client.users.get(arr[index].author)) {
-    	client.users.get(arr[index].author).send("Your application has been accepted in **" + msg.guild.name + '** by ***' + msg.author.tag + '***.')
+    if(client.users.cache.get(arr[index].author)) {
+    	client.users.cache.get(arr[index].author).send("Your application has been accepted in **" + msg.guild.name + '** by ***' + msg.author.tag + '***.')
     }
 
     msg.channel.send('Application has been accepted.')

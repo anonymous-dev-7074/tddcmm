@@ -14,7 +14,7 @@ exports.run = (client, msg, args) => {
     .addField('Application System 📩', '`application-setup` `application-deny` `application-accept` `applications`')
     .addField('User Channels 📢', '`userchannels-setup` `join` `uckick`')
 
-    .setColor("RANDOM")
+    .setColor("#FFD300")
     .setFooter("To view extra information about a command, use !help <command>")
     msg.channel.send(embed)
     return;
@@ -29,7 +29,7 @@ exports.run = (client, msg, args) => {
   let embed = new MessageEmbed()
   .setTitle(`${args[0]}`)
   .setDescription(`Name: **${array[data].help.name}**\nUsage: **${array[data].help.usage}**`)
-  .setColor("RANDOM")
+  .setColor("#FFD300")
   msg.channel.send(embed)
 
 
