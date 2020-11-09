@@ -5,6 +5,12 @@ const db = require("quick.db")
 Canvas.registerFont("assest/fonts/Geizer.otf", {
   family: "Geizer"
 })
+Canvas.registerFont("assest/fonts/Captain.otf", {
+  family: "Captain"
+});
+Canvas.registerFont("assest/fonts/bourbon.ttf", {
+  family: "Bourbon"
+});
 let beingApplied = new Set();
 const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL"],
@@ -561,6 +567,7 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
   }
 });
 client.on("guildMemberAdd", async (member) => {
+  let font = db.get(`font_${member.guild.id}`)
   let welback = db.get(`welback1_${member.guild.id}`); //background
   let welchannl = db.get(`welchannl1_${member.guild.id}`); //channel
   let welmsg = db.get(`welmsg1_${member.guild.id}`); //message
@@ -594,12 +601,12 @@ client.on("guildMemberAdd", async (member) => {
       "https://media.discordapp.net/attachments/696417925418057789/744447998490312714/060.png?width=766&height=431"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  ctx.font = "70px Geizer";
+  ctx.font = `70px ${font}`;
   ctx.fillStyle = welc || "#ffffff";
   centerText(ctx, "Welcome", canvas.height / 1.2, canvas);
   //ctx.fillText("Welcome", canvas.width / 2.6, canvas.height / 1.2);
   // Add an exclamation point here and below
-  ctx.font = "55px Geizer";
+  ctx.font = `55px ${font}`;
   ctx.fillStyle = usrc || "#ffffff";
   //let x = 512-(ctx.measureText(member.user.tag).width/2)
   //ctx.fillText(`${member.user.tag}`, x, 200);//ok first i am making the canvas like koya
