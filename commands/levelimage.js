@@ -31,6 +31,14 @@ module.exports = {
               msg.channel.send(embed)
               db.set(`lvlback_${msg.guild.id}`, image)
             }
+  }else if (args[0].toLowerCase() === "imageremove"){
+  
+    const kk = new MessageEmbed()
+    .setColor("YELLOW")
+    .setTiTle("SUCCESFULL")
+    .setDescription("LEVEL IMAGE WAS SUCCESFULLY REMOVED GG")
+    msg.channel.send(kk)
+    db.delete(`lvlback_${msg.guilf.id}
   }
 }}
   module.exports.help = {
