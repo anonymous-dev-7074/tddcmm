@@ -9,7 +9,7 @@ let user = msg.mentions.users.first() || client.users.cache.get(args[0])
 
   let embed = new MessageEmbed()
   .setAuthor(`${user.tag}`, user.displayAvatarURL({size: 2048}))
-  .setImage(user.displayAvatarURL())
+  .setImage(user.displayAvatarURL({dynamic: true}))
   .setColor("RANDOM")
   msg.channel.send(embed)
 
