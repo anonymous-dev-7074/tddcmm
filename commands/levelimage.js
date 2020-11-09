@@ -1,7 +1,9 @@
 const discord = require("discord.js")
 const MessageEmbed = require("discord.js").MessageEmbed
 const db = require("quick.db");
-exports.run = (client, msg, args) => {
+module.exports = {
+  
+ run : async (client, msg, args) => {
   if(!args[0]){
     const embed = new discord.MessageEmbed()
     .setColor("#00FF00")
