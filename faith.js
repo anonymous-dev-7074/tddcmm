@@ -622,4 +622,4 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
   }
 });
 
-client.login("NjY1MTU1NTY1NjM4NjQ3ODA4.XhhgZA.Krql5ViWso-arWi9n3mELLGbqV0");
+client.login("NjY1MTU1NTY1NjM4NjQ3ODA4.XhhgZA.iXLGfiDaU6N3rsRfLwzhPEig-6k");
