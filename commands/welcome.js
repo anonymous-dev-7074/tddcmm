@@ -17,8 +17,8 @@ exports.run = async (client, msg, args) => {
         .setTitle("Server Welcome Setup")
         .setDescription("To use these commands, do `"+ prefix + "welcome <command>`")
         .addField(
-          "Commands",
-          "`channel`, `image`, `imageremove`, `message`, `messageremove`, `color`, `colorremove`, `embed`, `embedremove`, `disable`, `test`"
+          "Commands Plugins",
+          "`channel`, `font`, `image`, `imageremove`, `message`, `messageremove`, `color`, `colorremove`, `embed`, `embedremove`, `disable`, `test`"
         )
         .setFooter(client.user.username + " | Welcome")
         .setTimestamp();
@@ -406,30 +406,36 @@ exports.run = async (client, msg, args) => {
     }else if(args[0].toLowerCase() === "font"){
     let embed = new MessageEmbed()
     .setColor("#00ffff")
-    .setDescription("Now React With The Number That You Want To Select In Welcome Font\n\n:one: - For **American Captain** Font\n:two: - For **Uni Sans Heavy** Font\n3️⃣ - For **Bourbon Regular** Font\n:four: - For **Horizon** Font\n:five: - For **Rustico** Font\n:six: - For **Sweet Sensations** Font\n\n:x: - To Cancle The Font Selection\n🔁 - To Rest The Welcome Font")
+    .setDescription("Now React With The Number That You Want To Select In Welcome Font\n\n:one: - For **Geizer** Font\n:two: - For **A-Captain** Font\n3️⃣ - For **Bourbon Regular** Font\n\n:x: - To Cancle The Font Selection\n🔁 - To Rest The Welcome Font")
     .setTimestamp()
     const msg1 = await msg.channel.send(embed)
     await msg1.react("1️⃣");
     await msg1.react("2️⃣");
     await msg1.react("3️⃣");
+      await msg1.react("❌");
+    await msg1.react("🔁")
     msg1.awaitReactions((reaction, user) => user.id == msg.author.id && (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣' || reaction.emoji.name == "3️⃣" || reaction.emoji.name == "4️⃣" || reaction.emoji.name == "5️⃣" || reaction.emoji.name == "6️⃣" || reaction.emoji.name === "❌" || reaction.emoji.name == "🔁"),
     { max: 1, time: 30000 }).then(collected => {
             if (collected.first().emoji.name == '1️⃣') {
                     msg.reply('Font Seted To **Geizer**');
-                    db.set(`font_${msg.guild.id}`, "captain")
+                    db.set(`font_${msg.guild.id}`, "Geizer")
                     msg1.delete()
             }else if(collected.first().emoji.name == "2️⃣"){
               msg.reply("Font Seted To **A-Captain**")
               db.set(`font_${msg.guild.id}`, "Captain")
-              msg.delete()
+              msg1.delete()
             }else if(collected.first().emoji.name == "3️⃣"){
               msg.reply("Font Seted To **Bourbon Regular**")
-              db.set(`font_${msg.guild.id}`, "bourbon")
-              msg.delete()
+              db.set(`font_${msg.guild.id}`, "Bourbon")
+              msg1.delete()
+            }else if(collected.first().emoji.name == "🔁"){
+              msg.reply("Font Reseted")
+              db.delete(`font_${msg.guild.id}`)
+              msg1.delete()
             }
             else
                     msg.reply('Operation canceled.');
-                    msg.delete()
+                    msg1.delete()
     }).catch(() => {
             msg.reply('No reaction after 30 seconds, operation canceled');
             msg.delete()
