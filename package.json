@@ -21,7 +21,8 @@
     "node-fetch": "^2.6.0",
     "canvas": "^2.6.1",
     "canvacord": "^5.0.8",
-    "quick.db": "^7.1.2"
+    "quick.db": "^7.1.2",
+    "discord-player": "^3.0.2"
   },
   "engines": {
     "node": "12.x"

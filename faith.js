@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 const Canvas = require("canvas")
 const { centerText } = require("./util/Util");
 const db = require("quick.db")
+const { Player } = require("discord-player")
+
 Canvas.registerFont("assest/fonts/Geizer.otf", {
   family: "Geizer"
 })
@@ -17,6 +19,8 @@ const client = new Discord.Client({
   fetchAllMembers: true,
   disableEveryone: true
 });
+const player = new Player(client)
+client.player = player;
 const fs = require("fs");
 let cooldown = new Set();
 const Enmap = require("enmap");
