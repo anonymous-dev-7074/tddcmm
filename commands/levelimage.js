@@ -10,7 +10,8 @@ exports.run = (client, msg, args) => {
     .setTimestamp()
     msg.channel.send(embed)
   }else if(args[0].toLowerCase() === "image"){
-            let image = args[1]
+            const image = msg.attachments.first() ? msg.attachments.first().proxyURL : null || args[1];
+    
             if(!image){
               const embed = new MessageEmbed()
               .setColor("RED")
