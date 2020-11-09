@@ -6,6 +6,7 @@ exports.run = (client, msg, args) => {
   if (!args[0]) {
     let embed = new MessageEmbed()
     .addField('Misc 💫', '`help` `prefix` `support` `settings` `embed` `av` `invite`')
+    .addField('Music 🎵', '')
     .addField('Level System 🚿', '`removelevelrole` `levelroles` `level`, `leaderboard` `set-levelchannel` `resetall` `addlevelrole` `set-xpgain` `set-noxprole` `set-levelmessage`, `setlevel`, `set-noxprole` `set-noxpchannel` `add-doublexprole` `disablelevelsystem`')
     .addField('Reaction Roles 🌈', '`addreactionrole` `removereactionrole` `reactionroles`')
     .addField('Moderation ⚔️', '`addrole` `purge` `imageonly` `anti-invite` `ban` `kick` `mute` `unmute` `softban`')
