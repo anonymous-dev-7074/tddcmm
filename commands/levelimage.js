@@ -12,7 +12,7 @@ module.exports = {
     .setTimestamp()
     msg.channel.send(embed)
   }else if(args[0].toLowerCase() === "image"){
-            const image = msg.attachments.first() ? msg.attachments.first().proxyURL : null || args[1];
+            const image = msg.args[1]
     
             if(!image){
               const embed = new MessageEmbed()
@@ -32,7 +32,7 @@ module.exports = {
               db.set(`lvlback_${msg.guild.id}`, image)
             }
   }
-}
+}}
   module.exports.help = {
     name:"setlevel",
     usage: 'Lock a channel down.',
