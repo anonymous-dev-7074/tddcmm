@@ -444,5 +444,5 @@ exports.run = async (client, msg, args) => {
 }
 exports.help = {
   name: "welcome",
-  usage: "whois <user>"
+  usage: "Sets welcome message/image for you server"
 };
