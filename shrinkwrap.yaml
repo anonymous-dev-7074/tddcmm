@@ -9,6 +9,7 @@ dependencies:
   moment: 2.29.0
   ms: 2.1.2
   node-fetch: 2.6.1
+  quick.db: 7.1.3
 packages:
   /@canvacord/assets/1.0.0:
     dev: false
@@ -684,6 +685,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==
+  /quick.db/7.1.3:
+    dependencies:
+      better-sqlite3: 7.1.1
+      lodash: 4.17.20
+    dev: false
+    resolution:
+      integrity: sha512-0S1fVb9OAZGhkI4ZIc5Oe4yWMwhz20xSsziwd6+yGWKKMsPt+XOfj/gD5CesGxd2WdqBkZFBiP8ZqWDu55HLHA==
   /randombytes/2.1.0:
     dependencies:
       safe-buffer: 5.2.1
@@ -960,3 +968,4 @@ specifiers:
   moment: ^2.24.0
   ms: ^2.1.2
   node-fetch: ^2.6.0
+  quick.db: ^7.1.2

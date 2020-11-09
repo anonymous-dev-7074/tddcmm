@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js')
 const canvacord = require("canvacord")
+const db = require("quick.db")
 const status1 = {
     online: "online",
     idle: "idle",
@@ -17,6 +18,7 @@ const discord = require("discord.js")
 exports.run = (client, msg, args) => {
 	let user = msg.mentions.users.first() || msg.guild.members.cache.find(mem => mem.user.username.toLowerCase() === args.join(" ").toLowerCase()) || msg.guild.members.cache.get(args[0])
 	if (!user) user = msg.author
+  let back = db.get(`lvlback_${msg.guild.id}`)
   let hh = user.username
       let bb = user.discriminator
     const Level = client.profile.get(`${msg.guild.id}-${user.id}`, "level")
@@ -36,6 +38,8 @@ exports.run = (client, msg, args) => {
             .setDiscriminator(bb)
             .setLevel(Level)
             .setRank(uLevel)
+            .setBackground("IMAGE", back || "https://media.discordapp.net/attachments/696417925418057789/744447998490312714/060.png?width=766&height=431")
+
         rank.build()
     .then(data => {
         const attachment = new discord.MessageAttachment(data);
