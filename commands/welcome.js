@@ -18,7 +18,7 @@ exports.run = async (client, msg, args) => {
         .setDescription("To use these commands, do `"+ prefix + "welcome <command>`")
         .addField(
           "Commands",
-          "`channel`, `image`, `imageremove`, `message`, `messageremove`, `color`, `colorremove`, `autorole`, `embed`, `embedremove`, `disable`, `test`"
+          "`channel`, `image`, `imageremove`, `message`, `messageremove`, `color`, `colorremove`, `embed`, `embedremove`, `disable`, `test`"
         )
         .setFooter(client.user.username + " | Welcome")
         .setTimestamp();
@@ -166,14 +166,6 @@ exports.run = async (client, msg, args) => {
               user
                 ? `User Text Color Is Seted`
                 : "No User Text Is Seted, `"+ prefix + "welcome color user` To Set One"
-            }\n${
-              autou || autob
-              ?
-              "<:yesk:744161409016922123>" : "<:nun:744161409117454456>"
-            } **Autorole:** ${
-             autou || autob
-              ?
-            "Autorole Seted" : "No Autorole Seted, `"+ prefix + "welcome autorole` To Set One."
             }\n${
               en ? "<:yesk:744161409016922123>" : "<:nun:744161409117454456>"
             } **Welcome Embed:** ${
