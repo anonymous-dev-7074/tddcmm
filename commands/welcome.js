@@ -18,7 +18,7 @@ exports.run = async (client, msg, args) => {
         .setDescription("To use these commands, do `"+ prefix + "welcome <command>`")
         .addField(
           "Commands",
-          "`channel`, `font`, `image`, `imageremove`, `message`, `messageremove`, `color`, `colorremove`, `autorole`, `embed`, `embedremove`, `disable`, `test`"
+          "`channel`, `image`, `imageremove`, `message`, `messageremove`, `color`, `colorremove`, `autorole`, `embed`, `embedremove`, `disable`, `test`"
         )
         .setFooter(client.user.username + " | Welcome")
         .setTimestamp();

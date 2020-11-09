@@ -2,6 +2,9 @@ const Discord = require("discord.js");
 const Canvas = require("canvas")
 const { centerText } = require("./util/Util");
 const db = require("quick.db")
+Canvas.registerFont("assest/fonts/Geizer.otf", {
+  family: "Geizer"
+})
 let beingApplied = new Set();
 const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL"],
