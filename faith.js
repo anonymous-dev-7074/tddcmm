@@ -621,5 +621,8 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
     return;
   }
 });
+client.on("guildMemberAdd", async (member) => {
+  
+})
 
 client.login("NjY1MTU1NTY1NjM4NjQ3ODA4.XhhgZA.iXLGfiDaU6N3rsRfLwzhPEig-6k");
