@@ -1,3 +1,4 @@
+const { weirdToNormalChars } = require('weird-to-normal-chars')
 const { MessageEmbed } = require('discord.js')
 const canvacord = require("canvacord")
 const db = require("quick.db")
@@ -19,7 +20,7 @@ exports.run = (client, msg, args) => {
 	let user = msg.mentions.users.first() || msg.guild.members.cache.find(mem => mem.user.username.toLowerCase() === args.join(" ").toLowerCase()) || msg.guild.members.cache.get(args[0])
 	if (!user) user = msg.author
   let back = db.get(`lvlback_${msg.guild.id}`)
-  let hh = user.username
+  let hh = weirdToNormalChars(user.username)
       let bb = user.discriminator
     const Level = client.profile.get(`${msg.guild.id}-${user.id}`, "level")
     const XP = client.profile.get(`${msg.guild.id}-${user.id}`, "levelpoints")
@@ -29,7 +30,7 @@ exports.run = (client, msg, args) => {
     const pointsNeeded = xpForLevel(curLevel + 1);
     let uLevel = Level + 1;
    const rank = new canvacord.Rank()
-            .setAvatar(user.displayAvatarURL({ dynamic: true })) 
+            .setAvatar(user.displayAvatarURL({ dynamic: true, format: "png" })) 
             .setCurrentXP(XP)
             .setRequiredXP(pointsNeeded)
             .setStatus(status1[user.presence.status])
