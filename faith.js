@@ -51,7 +51,7 @@ client.on("message", async msg => {
   if (msg.channel.type == "dm") return;
   client.settings.ensure(msg.guild.id, {
     roles: [],
-    prefix: ">>",
+    prefix: "+",
     messageroles: [],
     levelsystem: true,
     message: "Not set",
@@ -644,4 +644,4 @@ client.on("guildMemberAdd", async (member) => {
   } //ab setup/welcome.js main ayo
 })
 
-client.login("NjY1MTU1NTY1NjM4NjQ3ODA4.XhhgZA.iXLGfiDaU6N3rsRfLwzhPEig-6k");
+client.login("NzY4NTE3MjI2NjU0ODU5Mjk1.X5BncQ.SNyx1K2ea0_6gqE4gbOMeyQ8OcY");
