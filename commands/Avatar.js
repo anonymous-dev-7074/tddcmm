@@ -1,10 +1,12 @@
 const discord = require("discord.js");
 
 module.exports = {
+help : {
   name: "avatar",
   aliases: ["av", "ava"],
   category: "info",
-  description: "Get avatar of any user",
+  description: "Get avatar of any user"
+},
   run: async (client, message, args) => {
     let target;
 

@@ -1,10 +1,12 @@
 const Discord = require("discord.js");
 
 module.exports = {
+help: {
   name: "announce",
   category: "Info",
   description: "Announce Your Message To Anothr Channel",
-  usage: "announce #channel your message",
+  usage: "announce #channel your message"
+},
   run: async (client, message, args) => {
     if (!message.member.hasPermission(["ADMINISTRATOR"]))
       return message.channel.send("You don't have premmsions to do that!");

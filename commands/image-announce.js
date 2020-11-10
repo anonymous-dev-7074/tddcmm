@@ -1,8 +1,10 @@
 const Discord = require("discord.js");
 
 module.exports = {
+help: {
   name: "image-announce",
-  aliases: ["iannounce"],
+  aliases: ["iannounce"]
+},
   run: async (client, message, args) => {
     const chm = message.mentions.channels.first();
     if (!chm) return message.reply("First mention A Channel Then Image");

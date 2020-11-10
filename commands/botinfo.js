@@ -6,9 +6,11 @@ let week = 0;
 let { version } = require("discord.js");
 
 module.exports = {
+help: {
   name: "botinfo",
   aliases: ["about", "info"],
-  description: "Show Information About Bot",
+  description: "Show Information About Bot"
+},
   run: async (client, message, args) => {
     let bot = client;
 
