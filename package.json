@@ -1,5 +1,6 @@
 {
   "name": "faith",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "faith.js",
