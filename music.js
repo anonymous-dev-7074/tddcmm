@@ -6,7 +6,7 @@ const Discord = require('discord.js'),
         token: NzY4NTE3MjI2NjU0ODU5Mjk1.X5BncQ.VRJA_cR7dvwH_oDI9w-iP69CP-w || "Your Discord Token"
     };
  
-require("faith.js")
+require("./faith.js")
 // Create a new DisTube
 const distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true, highWaterMark: 1 << 25 });
  
