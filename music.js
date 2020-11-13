@@ -22,7 +22,7 @@ client.on("message", async (message) => {
  if (command == "autoplay") {
         let mode = distube.toggleAutoplay(message);
         message.channel.send("Set autoplay mode to `" + (mode ? "On" : "Off") + "`");
-
+}
     if (command == "play")
         distube.play(message, args.join(" "));
 
@@ -50,7 +50,7 @@ if (command == "volume")
         let filter = distube.setFilter(message, command);
         message.channel.send("Current queue filter: " + (filter || "Off"));
     }
-};
+});
  
 // Queue status template
 const status = (queue) => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filter || "Off"}\` | Loop: \`${queue.repeatMode ? queue.repeatMode == 2 ? "All Queue" : "This Song" : "Off"}\` | Autoplay: \`${queue.autoplay ? "On" : "Off"}\``;
