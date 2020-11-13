@@ -61,7 +61,7 @@ distube
     .on("playSong", (message, queue, song) => message.channel.send(new MessageEmbed()
         .setDescription(`Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}\n${status(queue)}`)
         .setImage(`${song.thumbnail}`)
-.setColor(BLACK)
+.setColor("#FF7034")
     ))
 
     .on("addSong", (message, queue, song) => message.channel.send(
