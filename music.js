@@ -8,7 +8,7 @@ const Discord = require('discord.js'),
  
 require("./faith.js")
 // Create a new DisTube
-const distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true, highWaterMark: 1 << 25 });
+const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true, highWaterMark: 1 << 25 });
  
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -22,6 +22,9 @@ client.on("message", async (message) => {
  
     if (command == "play")
         distube.play(message, args.join(" "));
+
+if (command == "volume")
+        distube.setVolume(message, args[0]);
  
     if (["repeat", "loop"].includes(command))
         distube.setRepeatMode(message, parseInt(args[0]));
