@@ -61,18 +61,21 @@ distube
     .on("playSong", (message, queue, song) => message.channel.send(new MessageEmbed()
         .setDescription(`Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}\n${status(queue)}`)
         .setImage(`${song.thumbnail}`)
-.setColor("#FF7034")
+.setColor("#00FFFF")
     ))
 
     .on("addSong", (message, queue, song) => message.channel.send(new MessageEmbed()
         .setDescription(`Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`)
-.setColor("CYAN")
+.setColor("#00FFFF")
     ))
-    .on("playList", (message, queue, playlist, song) => message.channel.send(
-        `Play \`${playlist.title}\` playlist (${playlist.total_items} songs).\nRequested by: ${song.user}\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
+    .on("playList", (message, queue, playlist, song) => message.channel.send(new MessageEmbed()
+       .setDescription(`Play \`${playlist.title}\` playlist (${playlist.total_items} songs).\nRequested by: ${song.user}\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`)
+.setImage(`${song.thumbnail}`)
+.setColor("#00FFFF`)
     ))
-    .on("addList", (message, queue, playlist) => message.channel.send(
-        `Added \`${playlist.title}\` playlist (${playlist.total_items} songs) to queue\n${status(queue)}`
+    .on("addList", (message, queue, playlist) => message.channel.send(new MessageEmbed()
+        .setDescription(`Added \`${playlist.title}\` playlist (${playlist.total_items} songs) to queue\n${status(queue)✅}`)
+.setColor("#00FFFF")
     ))
     // DisTubeOptions.searchSongs = true
     .on("searchResult", (message, result) => {
