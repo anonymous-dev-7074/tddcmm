@@ -59,9 +59,9 @@ const status = (queue) => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filt
 // DisTube event listeners, more in the documentation page
 distube
     .on("playSong", (message, queue, song) => message.channel.send(new MessageEmbed()
-        .setDescription(`Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}\n${status(queue)}}`)
-
-
+        .setDescription(`Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}\n${status(queue)}`)
+        .setImage(${song.thumbnail})
+.setColor(BLACK)
     ))
 
     .on("addSong", (message, queue, song) => message.channel.send(
