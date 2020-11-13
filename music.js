@@ -9,7 +9,7 @@ const { MessageEmbed } = require("discord.js")
  
 require("./faith.js")
 // Create a new DisTube
-const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true, highWaterMark: 1 << 25 });
+const distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true, leaveOnFinish: true,highWaterMark: 1 << 25 });
  
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
