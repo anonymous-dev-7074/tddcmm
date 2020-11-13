@@ -2,8 +2,8 @@ const Discord = require('discord.js'),
     DisTube = require('distube'),
     client = new Discord.Client(),
     config = {
-        prefix: "+",
-        token: NzY4NTE3MjI2NjU0ODU5Mjk1.X5BncQ.VRJA_cR7dvwH_oDI9w-iP69CP-w || "Your Discord Token"
+        prefix: "+"
+        
     };
  
 require("./faith.js")
@@ -72,4 +72,4 @@ distube
         "An error encountered: " + err
     ));
  
-client.login(config.token);
+client.login("NzY4NTE3MjI2NjU0ODU5Mjk1.X5BncQ.leJbi3sQNKaPa3N_62MC85F9YuQ");
