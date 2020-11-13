@@ -64,8 +64,9 @@ distube
 .setColor("#FF7034")
     ))
 
-    .on("addSong", (message, queue, song) => message.channel.send(
-        `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
+    .on("addSong", (message, queue, song) => message.channel.send(new MessageEmbed()
+        .setDescription(`Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`)
+.setColor("CYAN")
     ))
     .on("playList", (message, queue, playlist, song) => message.channel.send(
         `Play \`${playlist.title}\` playlist (${playlist.total_items} songs).\nRequested by: ${song.user}\nNow playing \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`
