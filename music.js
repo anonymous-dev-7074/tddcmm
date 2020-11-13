@@ -26,6 +26,8 @@ client.on("message", async (message) => {
     if (command == "play")
         distube.play(message, args.join(" "));
 
+if (command == "skip")
+        distube.skip(message);
 if (command == "volume")
         distube.setVolume(message, args[0]);
  
