@@ -5,6 +5,7 @@ const Discord = require('discord.js'),
         prefix: "+"
         
     };
+const { MessageEmbed } = require("discord.js")
  
 require("./faith.js")
 // Create a new DisTube
