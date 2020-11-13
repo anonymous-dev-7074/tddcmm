@@ -74,7 +74,7 @@ distube
 .setColor("#00FFFF")
     ))
     .on("addList", (message, queue, playlist) => message.channel.send(new MessageEmbed()
-        .setDescription(`Added \`${playlist.title}\` playlist (${playlist.total_items} songs) to queue\n${status(queue)✅}`)
+        .setDescription(`Added \`${playlist.title}\` playlist (${playlist.total_items} songs) to queue\n${status(queue)}✅`)
 .setColor("#00FFFF")
     ))
     // DisTubeOptions.searchSongs = true
