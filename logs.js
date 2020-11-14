@@ -33,7 +33,7 @@ break;
     var y = db.get('messagedelete_' + message.guild.id)
     if (y !== `enabled`) return;
     var x = db.get('loggingchannel_' + message.guild.id)
-    x = client.channels.get(x)
+    x = client.channels.cache.get(x)
     if (message.channel == x) return;
     var embed = new MessageEmbed()
     .setColor('RANDOM')
@@ -52,7 +52,7 @@ client.on("channelCreate", async function(channel){
        var y = db.get(`channelcreate_${channel.guild.id}`)
     if (y !== 'enabled') return;
    var x = db.get('loggingchannel_' + channel.guild.id)
-  var x = client.channels.get(x)
+  var x = client.channels.cache.get(x)
     var embed = new MessageEmbed()
     .setColor('RANDOM')
     .setAuthor('channel created', channel.guild.iconURL)
