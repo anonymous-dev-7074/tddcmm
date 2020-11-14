@@ -287,7 +287,7 @@ break;
       var y = client.channels.cache.get(x)
      embed.addField(`----------------------`, `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`)
     }
-      embed.setFooter(`any suggestions for the bot or the setting up process? hit me up:\n`+ `${client.users.get('406923333154897930').tag}  `)
+      embed.setFooter(`any suggestions for the bot or the setting up process? hit me up:\n `)
     } else if (y == "disabled") {
         embed.addField('logging deleted messages [1]', "disabled")
       embed.addField('logging created roles [2]', "disabled")
