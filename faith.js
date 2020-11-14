@@ -4,6 +4,7 @@ const { centerText } = require("./util/Util");
 const db = require("quick.db")
 const { Player } = require("discord-player")
 require("./music.js")
+require("./logs.js")
 Canvas.registerFont("assest/fonts/Geizer.otf", {
   family: "Geizer"
 })
