@@ -343,7 +343,7 @@ break;
       embed.addField(`----------------------`, `logging channel rn is ${y}. to set up another channel, type **${prefix}setchannel #channel**`)
     }
     }
-      embed.setFooter(`any suggestions for the bot? hit me up:\n`+ `${client.users.cache.get('406923333154897930').tag}`)
+      embed.setFooter(`any suggestions for the bot? hit me up:\n`)
       embed.addField(`----------------------\n`, `[bot invite](https://discordapp.com/oauth2/authorize?client_id=562509947405860889&permissions=8&scope=bot)`)
     message.channel.send(embed)
     
