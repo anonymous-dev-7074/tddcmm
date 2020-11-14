@@ -261,7 +261,7 @@ break;
     if (command === "help") {
     if (!message.guild) return message.channel.send(`use this command in a server, not dm!`)
       if (!message.member.hasPermission(`MANAGE_CHANNELS`) || !message.member.hasPermission(`MANAGE_GUILD`)) return message.channel.send(`sorry, you need manage channels / manage guild permission to use this!`)
-    var embed = new discord.RichEmbed()
+    var embed = new MessageEmbed()
     .setAuthor(`help`, message.guild.iconURL)
     
     .setTitle(`configuration for logging bot in ${message.guild.name}\n----------------------`)
