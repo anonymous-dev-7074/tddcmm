@@ -58,7 +58,7 @@ fs.readdir("./commands/", (err, files) => {
   });
 });
 
-client.on("message", async msg => {
+/* client.on("message", async msg => {
   if (msg.channel.type == "dm") return;
   client.settings.ensure(msg.guild.id, {
     roles: [],
@@ -302,7 +302,9 @@ client.on("message", async msg => {
   }
   cmd.run(client, msg, args);
 });
+*/
 
+/*
 client.on("messageReactionRemove", async (reaction, user) => {
   if (user.bot) return;
   if (reaction.message.partial) {
@@ -485,11 +487,12 @@ client.on("ready", () => {
     blacklistedusers: []
   });
 });
+*/
 String.prototype.replaceAll = function(search, replacement) {
   var target = this;
   return target.split(search).join(replacement);
 };
-
+/*
 client.on("voiceStateUpdate", (oldMember, newMember) => {
   if (
     !client.channels.cache.get(
@@ -581,6 +584,7 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
     return;
   }
 });
+
 client.on("guildMemberAdd", async (member) => {
   let font = db.get(`font_${member.guild.id}`)
   let welback = db.get(`welback1_${member.guild.id}`); //background
@@ -654,5 +658,5 @@ client.on("guildMemberAdd", async (member) => {
     client.channels.cache.get(welchannl).send(embed); //acha laga ga
   } //ab setup/welcome.js main ayo
 })
-
+*/
 client.login("NzY4NTE3MjI2NjU0ODU5Mjk1.X5BncQ.3dOYKAuK7Y7_cuc9hM-8YJwSWQk");
