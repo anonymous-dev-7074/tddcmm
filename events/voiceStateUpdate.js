@@ -1,4 +1,4 @@
-module.exports = (client, oldMember, newMember) => { 
+module.exports = async(client, oldMember, newMember) => { 
  if (
     !client.channels.cache.get(
       client.settings.get(oldMember.guild.id, "userchannelcreate").channel
