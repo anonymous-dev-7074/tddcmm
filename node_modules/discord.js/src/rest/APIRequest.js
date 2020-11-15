@@ -1,8 +1,8 @@
 'use strict';
 
 const https = require('https');
+const FormData = require('@discordjs/form-data');
 const AbortController = require('abort-controller');
-const FormData = require('form-data');
 const fetch = require('node-fetch');
 const { browser, UserAgent } = require('../util/Constants');
 
@@ -15,11 +15,13 @@ class APIRequest {
     this.method = method;
     this.route = options.route;
     this.options = options;
+    this.retries = 0;
 
     let queryString = '';
     if (options.query) {
-      // Filter out undefined query options
-      const query = Object.entries(options.query).filter(([, value]) => value !== null && typeof value !== 'undefined');
+      const query = Object.entries(options.query)
+        .filter(([, value]) => ![null, 'null', 'undefined'].includes(value) && typeof value !== 'undefined')
+        .flatMap(([key, value]) => (Array.isArray(value) ? value.map(v => [key, v]) : [[key, value]]));
       queryString = new URLSearchParams(query).toString();
     }
     this.path = `${path}${queryString && `?${queryString}`}`;
@@ -39,7 +41,7 @@ class APIRequest {
     if (this.options.headers) headers = Object.assign(headers, this.options.headers);
 
     let body;
-    if (this.options.files) {
+    if (this.options.files && this.options.files.length) {
       body = new FormData();
       for (const file of this.options.files) if (file && file.file) body.append(file.name, file.file, file.name);
       if (typeof this.options.data !== 'undefined') body.append('payload_json', JSON.stringify(this.options.data));

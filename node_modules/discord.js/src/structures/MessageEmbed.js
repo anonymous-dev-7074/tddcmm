@@ -7,11 +7,18 @@ const Util = require('../util/Util');
  * Represents an embed in a message (image/video preview, rich embed, etc.)
  */
 class MessageEmbed {
-  constructor(data = {}) {
-    this.setup(data);
+  /**
+   * @name MessageEmbed
+   * @kind constructor
+   * @memberof MessageEmbed
+   * @param {MessageEmbed|Object} [data={}] MessageEmbed to clone or raw embed data
+   */
+
+  constructor(data = {}, skipValidation = false) {
+    this.setup(data, skipValidation);
   }
 
-  setup(data) {
+  setup(data, skipValidation) {
     /**
      * The type of this embed, either:
      * * `rich` - a rich embed
@@ -22,39 +29,40 @@ class MessageEmbed {
      * * `link` - a link embed
      * @type {string}
      */
-    this.type = data.type;
+    this.type = data.type || 'rich';
 
     /**
      * The title of this embed
      * @type {?string}
      */
-    this.title = data.title;
+    this.title = 'title' in data ? data.title : null;
 
     /**
      * The description of this embed
      * @type {?string}
      */
-    this.description = data.description;
+    this.description = 'description' in data ? data.description : null;
 
     /**
      * The URL of this embed
      * @type {?string}
      */
-    this.url = data.url;
+    this.url = 'url' in data ? data.url : null;
 
     /**
      * The color of this embed
      * @type {?number}
      */
-    this.color = Util.resolveColor(data.color);
+    this.color = 'color' in data ? Util.resolveColor(data.color) : null;
 
     /**
      * The timestamp of this embed
      * @type {?number}
      */
-    this.timestamp = data.timestamp ? new Date(data.timestamp).getTime() : null;
+    this.timestamp = 'timestamp' in data ? new Date(data.timestamp).getTime() : null;
 
     /**
+     * Represents a field of a MessageEmbed
      * @typedef {Object} EmbedField
      * @property {string} name The name of this field
      * @property {string} value The value of this field
@@ -65,9 +73,13 @@ class MessageEmbed {
      * The fields of this embed
      * @type {EmbedField[]}
      */
-    this.fields = data.fields ? this.constructor.normalizeFields(data.fields) : [];
+    this.fields = [];
+    if (data.fields) {
+      this.fields = skipValidation ? data.fields.map(Util.cloneObject) : this.constructor.normalizeFields(data.fields);
+    }
 
     /**
+     * Represents the thumbnail of a MessageEmbed
      * @typedef {Object} MessageEmbedThumbnail
      * @property {string} url URL for this thumbnail
      * @property {string} proxyURL ProxyURL for this thumbnail
@@ -89,6 +101,7 @@ class MessageEmbed {
       : null;
 
     /**
+     * Represents the image of a MessageEmbed
      * @typedef {Object} MessageEmbedImage
      * @property {string} url URL for this image
      * @property {string} proxyURL ProxyURL for this image
@@ -110,6 +123,7 @@ class MessageEmbed {
       : null;
 
     /**
+     * Represents the video of a MessageEmbed
      * @typedef {Object} MessageEmbedVideo
      * @property {string} url URL of this video
      * @property {string} proxyURL ProxyURL for this video
@@ -132,6 +146,7 @@ class MessageEmbed {
       : null;
 
     /**
+     * Represents the author field of a MessageEmbed
      * @typedef {Object} MessageEmbedAuthor
      * @property {string} name The name of this author
      * @property {string} url URL of this author
@@ -153,6 +168,7 @@ class MessageEmbed {
       : null;
 
     /**
+     * Represents the provider of a MessageEmbed
      * @typedef {Object} MessageEmbedProvider
      * @property {string} name The name of this provider
      * @property {string} url URL of this provider
@@ -170,6 +186,7 @@ class MessageEmbed {
       : null;
 
     /**
+     * Represents the footer field of a MessageEmbed
      * @typedef {Object} MessageEmbedFooter
      * @property {string} text The text of this footer
      * @property {string} iconURL URL of the icon for this footer
@@ -196,7 +213,7 @@ class MessageEmbed {
   }
 
   /**
-   * The date this embed was created at
+   * The date displayed on this embed
    * @type {?Date}
    * @readonly
    */
