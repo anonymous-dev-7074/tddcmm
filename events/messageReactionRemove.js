@@ -1,4 +1,4 @@
-module.exports = (client, reaction, user) => {
+module.exports = async(client, reaction, user) => {
   if (user.bot) return;
   if (reaction.message.partial) {
     try {
