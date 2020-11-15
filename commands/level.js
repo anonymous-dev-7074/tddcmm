@@ -29,9 +29,9 @@ exports.run = (client, msg, args) => {
     const curLevel = calcLevel(client.profile.get(`${msg.guild.id}-${user.id}`, "levelpoints")) // 2
     const pointsNeeded = xpForLevel(curLevel + 1);
     let data = client.profile.filter(p => p.guild === msg.guild.id).array()
-    let every = data.sort((a, b) => b.level - a.level)
-    //let uLevel = Level + 1;
-let urank = every.map(x => x.ID).indexOf(`${msg.guild.id}-${user.id}`) + 1;
+    let d = data.sort((a, b) => b.level - a.level)
+        //let uLevel = Level + 1;
+let urank = d.map(x => x).indexOf(`${msg.guild.id}-${user.id}`) + 1;
    const rank = new canvacord.Rank()
             .setAvatar(user.displayAvatarURL({ dynamic: true, format: "png" })) 
             .setCurrentXP(XP)
