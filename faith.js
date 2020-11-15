@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const Canvas = require("canvas")
 const { centerText } = require("./util/Util");
 const db = require("quick.db")
-const { Player } = require("discord-player")
-
+const { Player } = require("discord-player");
+require("./music.js");
 
 Canvas.registerFont("assest/fonts/Geizer.otf", {
   family: "Geizer"
