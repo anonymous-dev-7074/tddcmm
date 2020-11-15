@@ -31,7 +31,7 @@ exports.run = (client, msg, args) => {
     let data = client.profile.filter(p => p.guild === msg.guild.id).array()
     let every = data.sort((a, b) => b.level - a.level)
     //let uLevel = Level + 1;
-let rank = every.map(x => x.ID).indexOf(``${msg.guild.id}-${user.id}``) + 1;
+let urank = every.map(x => x.ID).indexOf(`${msg.guild.id}-${user.id}`) + 1;
    const rank = new canvacord.Rank()
             .setAvatar(user.displayAvatarURL({ dynamic: true, format: "png" })) 
             .setCurrentXP(XP)
@@ -41,7 +41,7 @@ let rank = every.map(x => x.ID).indexOf(``${msg.guild.id}-${user.id}``) + 1;
             .setUsername(hh)
             .setDiscriminator(bb)
             .setLevel(Level)
-            .setRank(rank)
+            .setRank(urank)
             .setBackground("IMAGE", back || "https://media.discordapp.net/attachments/696417925418057789/744447998490312714/060.png?width=766&height=431")
 
         rank.build()
