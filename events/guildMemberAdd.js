@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const Canvas = require("canvas")
 const { centerText } = require("../util/Util");
 const db = require("quick.db");
-module.exports = (client, member) => { 
+module.exports = async (client, member) => { 
 
 Canvas.registerFont("assest/fonts/Geizer.otf", {
   family: "Geizer"
