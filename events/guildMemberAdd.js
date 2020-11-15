@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const Canvas = require("canvas")
 const { centerText } = require("../util/Util");
 const db = require("quick.db");
+const { weirdToNormalChars } = require('weird-to-normal-chars')
 module.exports = async (client, member) => { 
 
 Canvas.registerFont("assest/fonts/Geizer.otf", {
@@ -55,8 +56,8 @@ let font = db.get(`font_${member.guild.id}`)
   ctx.font = `55px ${font}`;
   ctx.fillStyle = usrc || "#ffffff";
   //let x = 512-(ctx.measureText(member.user.tag).width/2)
-  //ctx.fillText(`${member.user.tag}`, x, 200);//ok first i am making the canvas like koya
-  centerText(ctx, member.user.tag, 410, canvas);
+  //ctx.fillText(`${weirdToNormalChars(member.user.tag)}`, x, 200);//ok first i am making the canvas like koya
+  centerText(ctx, weirdToNormalChars(member.user.tag), 410, canvas);
   ctx.beginPath();
   const back1 = await Canvas.loadImage(
     "https://cdn.glitch.com/e8fae0a6-f8d2-4180-9cf2-2a337ef27413%2Fa40b8840-4bae-425f-b1d6-649c62e7fca2.image.png?v=1597409272378"
