@@ -1,4 +1,4 @@
-module.exports = (client) => {
+module.exports = async(client) => {
   client.blacklisted.ensure(client.user.id, {
     blacklistedusers: []
   });
