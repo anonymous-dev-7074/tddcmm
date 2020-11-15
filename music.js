@@ -94,4 +94,4 @@ distube
         "An error encountered: " + err
     ));
  
-client.login("NzY4NTE3MjI2NjU0ODU5Mjk1.X5BncQ.iNJHaa-q8ry-n7GUm-jWRI0Qo-k");
+client.login("NzY4NTE3MjI2NjU0ODU5Mjk1.X5BncQ.fisMEyFANe48txTbNMul7ZyHwE0");
