@@ -1,6 +1,6 @@
  const db = require("quick.db")
 
-module.exports = (client, reaction, user) => {
+module.exports = async(client, reaction, user) => {
 (user.bot) return;
   if (reaction.message.partial) {
     try {
