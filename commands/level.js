@@ -31,7 +31,7 @@ exports.run = (client, msg, args) => {
     let data = client.profile.filter(p => p.guild === msg.guild.id).array()
     let d = data.sort((a, b) => b.level - a.level)
         //let uLevel = Level + 1;
-let urank = d.map(x => x).indexOf(`${msg.guild.id}-${user.id}`) + 1;
+let urank = d.map(x => x.id).indexOf(`${user.id}`) + 1;
    const rank = new canvacord.Rank()
             .setAvatar(user.displayAvatarURL({ dynamic: true, format: "png" })) 
             .setCurrentXP(XP)
