@@ -1,5 +1,5 @@
 const db = require("quick.db");
-module.exports = (client, message) => { 
+module.exports = async(client, message) => { 
 const msg = message;
 const cooldown = client.cooldown;
 if (msg.channel.type == "dm") return;
