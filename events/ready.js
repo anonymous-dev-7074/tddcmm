@@ -1,4 +1,6 @@
 const { ErelaClient, Utils } = require("erela.js");
+const { MessageEmbed } = require("discord.js")
+
 module.exports = async(client) => {
   client.blacklisted.ensure(client.user.id, {
     blacklistedusers: []
@@ -22,4 +24,9 @@ console.log(`${client.user.tag} is online!`)
       )
       .setColor("black");
     player.textChannel.send(embed);
+})
+  client.music.on("queueEnd", async player => {
+    player.textChannel.send({embed: {color: "black",description: "Queue has ended."}})
+    return client.music.players.destroy(player.guild.id)
+    })
 }
