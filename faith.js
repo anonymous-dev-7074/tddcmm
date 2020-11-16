@@ -660,4 +660,4 @@ client.on("guildMemberAdd", async (member) => {
   } //ab setup/welcome.js main ayo
 })
 */
-client.login("NzY4NTE3MjI2NjU0ODU5Mjk1.X5BncQ.Rt8689tAJMghVEz3hDDTdW36X0A");
+client.login("NzY4NTE3MjI2NjU0ODU5Mjk1.X5BncQ.Zcfuk3kjs3LZPb3Gf19deipq4VA");
