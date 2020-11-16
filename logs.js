@@ -161,18 +161,25 @@ client.on("guildMemberAdd", async function(member){
     x.send(embed).catch()
 });
 client.on("guildMemberRemove", async function(member){
+ const fetchedLogs = await member.guild.fetchAuditLogs({
+		limit: 1,
+		type: 'MEMBER_KICK',
+	});
+  const kickLog = fetchedLogs.entries.first();
  var y = db.get(`guildmemberremove_${member.guild.id}`)
     if (y !== 'enabled') return;
    var x = db.get('loggingchannel_' + member.guild.id)
   var x = client.channels.cache.get(x)
+  
 
     var embed = new MessageEmbed()
     .setColor('RANDOM')
     .setAuthor("user left", member.guild.iconURL)
     .addField('user tag', member.user.tag)
-    .addField('user id', member.user.id + `\n**----------------------**`)
+    .addField('user id', member.user.id )
+.addField(`${member.user.tag} left the guild, most likely of their own will.`)
     .setTimestamp()
-    x.send(embed).catch()
+  if (!kickLog) return  x.send(embed).catch()
   
 });
 
