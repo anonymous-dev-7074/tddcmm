@@ -39,7 +39,8 @@ module.exports.run = async (client, msg, args) => {
     )
     .setTimestamp()
     .setFooter(user.id)
-    .setColor("RANDOM");
+    .setImage("https://cdn.discordapp.com/attachments/768524656747085896/777722319828680704/20201116_075945.gif")
+    .setColor("#FFFFFF");
 
   msg.channel.send(embed);
 };
