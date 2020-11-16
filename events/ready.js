@@ -13,7 +13,7 @@ console.log(`${client.user.tag} is online!`)
   );
   client.music.on("trackStart", (player, track) => {
     const { thumbnail } = track;
-    const embed = new discord.MessageEmbed()
+    const embed = new MessageEmbed()
       .addField(track.author, `**[${track.title}](${track.uri})**`)
       .addField("Duration", `${Utils.formatTime(track.duration, true)}`)
       .addField("Requested By", track.requester)
