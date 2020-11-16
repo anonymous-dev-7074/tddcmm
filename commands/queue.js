@@ -4,7 +4,7 @@ module.exports = {
 help: {
 name: "queue"
 },
-run: async (client, message, args)
+run: async (client, message, args) => {
   const bot = client;
         const player = bot.music.players.get(message.guild.id);
 
