@@ -4,7 +4,7 @@ name: "skip",
 aliases: ["next"]
 },	
 
-run: async (message, args) => {
+run: async (client, message, args) => {
 		const bot = client;
         const player = bot.music.players.get(message.guild.id);
         if(!player) return message.channel.send("No song/s currently playing in this guild.");
