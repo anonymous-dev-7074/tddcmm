@@ -6,7 +6,7 @@ module.exports = async(client) => {
     blacklistedusers: []
   });
 console.log(`${client.user.tag} is online!`)
-  client.music = new ErelaClient(client, config.nodes);
+  client.music = new ErelaClient(client, client.config.nodes);
   client.music.on("nodeConnect", node => console.log("New node connected"));
   client.music.on("nodeError", (node, error) =>
     console.log(`Node error: ${error.message}`)
