@@ -14,8 +14,8 @@ exports.run = (client, msg, args) => {
     .addField('Welcome System 👋', '`welcome`')
     .addField('Application System 📩', '`application-setup` `application-deny` `application-accept` `applications`')
     .addField('User Channels 📢', '`userchannels-setup` `join` `uckick`')
-
-    .setColor("#FFD300")
+    .setImage("https://cdn.discordapp.com/attachments/768524656747085896/777720602420445254/20201116_075308.gif")
+    .setColor("#FFFFFF")
     .setFooter("To view extra information about a command, use !help <command>")
     msg.channel.send(embed)
     return;
@@ -30,7 +30,7 @@ exports.run = (client, msg, args) => {
   let embed = new MessageEmbed()
   .setTitle(`${args[0]}`)
   .setDescription(`Name: **${array[data].help.name}**\nUsage: **${array[data].help.usage}**`)
-  .setColor("#FFD300")
+  .setColor("#FFFFFF")
   msg.channel.send(embed)
 
 
