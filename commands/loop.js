@@ -24,13 +24,13 @@ const bot = client;
     
       if(player.trackRepeat == true){
             player.setTrackRepeat(false)
-              message.channel.send({embed: {description: "trackloop has been turned off"})
+              message.channel.send({embed: {description: "trackloop has been turned off"}})
     
       }
       else if(player.trackRepeat == false){
             player.setTrackRepeat(true)
-              message.channel.send("track loop has been turned on")
-    }
+                            message.channel.send({embed: {description: "trackbloop has been turned on!"}})
+     }
                          
     
             }
