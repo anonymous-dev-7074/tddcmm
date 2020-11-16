@@ -4,7 +4,7 @@ name: "volume",
 aliases: ["vol", "v"]
 },
 run: async(client, message, args) => {
-        const bot = this.client;
+        const bot = client;
         const player = bot.music.players.get(message.guild.id);
 
         if (!player) return message.channel.send("No song/s currently playing within this guild.");
