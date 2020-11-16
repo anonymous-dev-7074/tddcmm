@@ -1,3 +1,4 @@
+/*
 module.exports = async(client, oldMember, newMember) => { 
  if (
     !client.channels.cache.get(
@@ -89,3 +90,4 @@ module.exports = async(client, oldMember, newMember) => {
     return;
   }
 };
+*/
