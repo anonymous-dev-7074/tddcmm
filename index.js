@@ -8,6 +8,7 @@ const fs = require("fs");
 let cooldown = new Set();
 client.cooldown = cooldown;
 const Enmap = require("enmap");
+client.config = require("./config.json")
 client.commands = new Discord.Collection();
 client.profile = new Enmap({ name: "profile", fetchAll: true });
 client.settings = new Enmap({ name: "settings", fetchAll: true });
