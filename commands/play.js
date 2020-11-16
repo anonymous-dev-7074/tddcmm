@@ -4,7 +4,6 @@ name: "play"
 },
 run: async(client, message, args) => {
     const voiceChannel = message.member.voice.channel;
-const client = this.client;
         const player = client.music.players.spawn({
             guild: message.guild,
             voiceChannel: voiceChannel,
