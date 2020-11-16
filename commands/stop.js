@@ -3,7 +3,7 @@ help: {
 name: "stop"
 },
 run: async(client, message, args) => {
-        const bot = this.client;
+        const bot = client;
         const voiceChannel = message.member.voice.channel;
 
         const player = bot.music.players.get(message.guild.id);
