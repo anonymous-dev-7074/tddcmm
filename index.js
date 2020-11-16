@@ -1,13 +1,9 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({timeout: 60000});
 require("./logs.js");
 const db = require("quick.db")
 let beingApplied = new Set();
-const client = new Discord.Client({
-  partials: ["MESSAGE", "CHANNEL"],
-  fetchAllMembers: true,
-  disableEveryone: true
-});
+
 const fs = require("fs");
 let cooldown = new Set();
 client.cooldown = cooldown;
