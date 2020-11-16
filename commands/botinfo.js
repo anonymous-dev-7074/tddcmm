@@ -69,7 +69,8 @@ help: {
       .setFooter(
         "TDDC OFFICIAL BOT",
         "https://cdn.discordapp.com/attachments/773102352939876364/773211537950244864/1604418366862.gif"
-      );
+      )
+.setImage("https://cdn.discordapp.com/attachments/768524656747085896/777718054569508864/20201116_074257.gif");
 
     message.channel.send(botembed).then(async msg => {
       await msg.react("768723188258701365");
