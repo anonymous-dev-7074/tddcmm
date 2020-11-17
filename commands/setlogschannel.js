@@ -34,5 +34,6 @@ const emb = new MessageEmbed()
   
   module.exports.help = {
     name:"setlogschannel",
+    aliases : [] ,
     usage: '+setlogschannel #channel',
   }
