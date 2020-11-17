@@ -53,5 +53,6 @@ let urank = d.map(x => x.id).indexOf(`${user.id}`) + 1;
 
 module.exports.help = {
     name:"level",
+    aliases: [],
     usage: "!level"
   }
