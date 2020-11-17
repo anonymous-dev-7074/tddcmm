@@ -11,7 +11,7 @@ exports.run = (client, msg, args) => {
     .addField('<:a_rolechangeticket:778291006550442045>┃**REACTION ROLES**', '`addreactionrole` `removereactionrole` `reactionroles`')
     .addField('<:clear:778289089245609984>┃**MODERATION**', '`addrole` `purge` `imageonly` `anti-invite` `ban` `kick` `mute` `unmute` `softban`')
     .addField('<:commands:778300060386721793>┃**ROLE SYSTEM**', '`roles` `addpublicrole` `setrolechannel`')
-    .addField('<a:announce:759343564819398667>┃**WELCOME SYSTEM**', '`welcome`')
+    .addField('<a:welcome:778302209770913812>┃**WELCOME SYSTEM**', '`welcome`')
     .addField('<:messages:778289415171735563>┃**APPLICATION SYSTEM**', '`application-setup` `application-deny` `application-accept` `applications`')
     .addField('<:add:778289156065198102>┃**USER CHANNELS**', '`userchannels-setup` `join` `uckick`')
     .setImage("https://cdn.discordapp.com/attachments/768524656747085896/777720602420445254/20201116_075308.gif")
