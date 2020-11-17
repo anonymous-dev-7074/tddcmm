@@ -31,5 +31,6 @@ exports.run = async (client, msg, args) => {
 
   module.exports.help = {
     name:"kick",
+    aliases: [],
     usage: '!kick <user || userid || username>',
   }
