@@ -33,5 +33,6 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
     name:"removelevelrole",
+    aliases: [],
     usage:"!removelevelrole <role>"
   }
