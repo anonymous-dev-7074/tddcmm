@@ -66,5 +66,6 @@ exports.run = async (client, msg, args) => {
 
   module.exports.help = {
     name:"mute",
+    aliases: [],
     usage: '!mute <user> <duration>',
   }
