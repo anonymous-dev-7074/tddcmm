@@ -39,6 +39,6 @@ exports.run = async (client, msg, args) => {
    
    module.exports.help = {
     name:"addrole",
-    aliases: []
+    aliases: [],
     usage:"!addrole <user> <role> || !addrole <role>"
   }
