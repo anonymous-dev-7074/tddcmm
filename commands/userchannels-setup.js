@@ -19,5 +19,6 @@ exports.run = async (client, msg, args) => {
 
 exports.help = {
     name:"userchannels-setup",
+    aliases : [] ,
     usage:"!userchannels-setup"
 }
