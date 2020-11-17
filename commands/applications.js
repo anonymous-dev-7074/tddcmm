@@ -102,5 +102,6 @@ exports.run = async (client, msg, args) => {
 
 module.exports.help = {
   name: "applications",
+  aliases: []
   usage: "!applications <page> || !applications <user>"
 };
