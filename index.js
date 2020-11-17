@@ -10,6 +10,7 @@ client.cooldown = cooldown;
 const Enmap = require("enmap");
 client.config = require("./config.json")
 client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 client.profile = new Enmap({ name: "profile", fetchAll: true });
 client.settings = new Enmap({ name: "settings", fetchAll: true });
 client.reactionroles = new Enmap({ name: "reactionroles", fetchAll: true });
@@ -38,6 +39,9 @@ fs.readdir("./commands/", (err, files) => {
     let props = require(`./commands/${f}`);
     console.log(`${i + 1}: ${f} Loaded!`);
     client.commands.set(props.help.name, props);
+    props.help.aliases.forEach(alias => {
+      client.aliases.set(alias, props.help.name)
+   })
   });
 });
 
