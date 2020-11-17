@@ -33,5 +33,6 @@ msg.guild.member(user).ban()
 
   module.exports.help = {
     name:"softban",
+    aliases : [] ,
     usage: 'softban <user>',
   }
