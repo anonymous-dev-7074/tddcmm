@@ -31,7 +31,7 @@ const beingApplied = client.applications
       return;
     }
 
-    if (beingApplied.author.has(user.id)) {
+    if (beingApplied.map(x=>x.author).has(user.id)) {
       reaction.message.channel
         .send(
           user.tag +
