@@ -1,5 +1,3 @@
-
-
 exports.run = (client, msg, args) => {
 
 if (!msg.member.hasPermission("MANAGE_CHANNELS")) {
@@ -54,5 +52,6 @@ channel.updateOverwrite(msg.guild.id, {
 
   module.exports.help = {
     name:"lockdown",
+    aliases: [],
     usage: 'Lock a channel down.',
   }
