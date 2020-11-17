@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
 help: {
   name: "announce",
+  aliases: [],
   category: "Info",
   description: "Announce Your Message To Anothr Channel",
   usage: "announce #channel your message"
