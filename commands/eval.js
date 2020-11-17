@@ -25,6 +25,7 @@ function clean(text) {
 
   module.exports.help = {
     name:"eval",
+    aliases: [],
     usage: 'Only for developers, thats all u gotta know',
     group: "developer"
   }
