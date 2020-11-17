@@ -14,5 +14,6 @@ exports.run = async (client, msg, args) => {
 
 exports.help = {
     name:"settings",
+    aliases : [] ,
     usage:"!settings"
 }
