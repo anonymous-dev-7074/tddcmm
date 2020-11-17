@@ -444,5 +444,6 @@ exports.run = async (client, msg, args) => {
 }
 exports.help = {
   name: "welcome",
+  aliases : [],
   usage: "Sets welcome message/image for you server"
 };
