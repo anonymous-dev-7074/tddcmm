@@ -24,5 +24,6 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
     name:"levelroles",
+    aliases: [],
     usage:"!levelroles <page>",
   }
