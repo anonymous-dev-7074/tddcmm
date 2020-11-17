@@ -19,5 +19,6 @@ if (!msg.member.hasPermission("ADMINISTRATOR")) {
 
 exports.help = {
 	name:"disablelevelsystem",
+        aliases: [],
 	usage: "disablelevelsystem",
 }
