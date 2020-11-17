@@ -39,6 +39,7 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
     name:"help",
+    aliases: [],
     usage: "!help || !help <command>",
     group: "misc"
 }
