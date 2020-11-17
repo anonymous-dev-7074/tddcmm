@@ -1,4 +1,3 @@
-
 let { MessageEmbed } = require('discord.js')
 exports.run = (client, msg, args) => {
 
@@ -18,5 +17,6 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
     name:"reset",
+    aliases: [],
     usage: "!reset <user>"
   }
