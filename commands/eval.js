@@ -2,7 +2,7 @@
 const { MessageEmbed } = require('discord.js')
 
 exports.run = async (client, msg, args) => {
-    if(!['663759563555733543'].includes(msg.author.id)) return;
+    if(!['690132996195745872'].includes(msg.author.id)) return;
     try {
       const code = args.join(" ");
       let evaled = eval(code);
