@@ -1,6 +1,7 @@
 module.exports = {
 help: {
-name: "stop"
+name: "stop",
+aliases : [] 
 },
 run: async(client, message, args) => {
         const bot = client;
