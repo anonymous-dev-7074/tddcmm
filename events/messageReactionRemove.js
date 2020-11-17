@@ -7,6 +7,7 @@ module.exports = async(client, reaction, user) => {
       console.log("error fetching the message " + err);
     }
   }
+const beingApplied = client.beingApplied;
 
   let array = client.reactionroles.get(reaction.message.guild.id, "roles");
 
