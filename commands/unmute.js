@@ -25,5 +25,6 @@ exports.run = async (client, msg, args) => {
 
   module.exports.help = {
     name:"unmute",
+    aliases : [] ,
     usage: '!unmute <user> (they must have the muted role)',
   }
