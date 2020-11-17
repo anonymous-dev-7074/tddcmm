@@ -4,7 +4,7 @@ const { mem, cpu, os } = require('node-os-utils');
 const { stripIndent } = require('common-tags');
 
 module.exports = {
-    help: {
+    config: {
         name: "stats",
         aliases: ['bot-info'],
         category: "info",
@@ -35,8 +35,8 @@ module.exports = {
     
     const embed = new MessageEmbed()
       .setTitle('Bot\'s Statistics')
-      .addField('Commands', `\`${message.client.commands.size}\` commands`, true)
-      .addField('Aliases', `\`${message.client.aliases.size}\` aliases`, true)
+      .addField('Commands', `\`${client.commands.size}\` commands`, true)
+      .addField('Aliases', `\`${client.aliases.size}\` aliases`, true)
       .addField('Client', `\`\`\`asciidoc\n${clientStats}\`\`\``)
       .addField('Server', `\`\`\`asciidoc\n${serverStats}\`\`\``)
       .addField(
