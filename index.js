@@ -35,9 +35,10 @@ if(f.length <= 0) return console.log(" No commands")
 console.log(f + " Loaded")
 let command = require(`./commands/${f}`)
 client.commands.set(command.help.name, command)
-command.help.aliases.forEach(alias => {
+if(command.help.aliases) {command.help.aliases.forEach(alias => {
 client.aliases.set(alias, command.help.name)
 })
+}
 })
 })
 
