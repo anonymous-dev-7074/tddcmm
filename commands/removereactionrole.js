@@ -40,5 +40,6 @@ if (args[0] === "all") {
    
    module.exports.help = {
     name:"removereactionrole",
+    aliases: [],
     usage:"!removereactionrole <messageID> <role>"
   }
