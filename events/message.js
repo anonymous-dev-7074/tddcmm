@@ -231,7 +231,7 @@ if (msg.channel.type == "dm") return;
     .split(/ +/g);
   const command = args.shift().toLowerCase();
 
-  const cmd = client.commands.get(command);
+  const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
 
   if (!cmd) return;
   if (
