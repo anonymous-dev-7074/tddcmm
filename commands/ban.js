@@ -29,6 +29,7 @@ exports.run = async (client, msg, args) => {
 }
 
   module.exports.help = {
-    name:"ban",
+    name:"ban", 
+    aliases: [],
     usage: '!ban <user || userid || username>',
   }
