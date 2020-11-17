@@ -13,5 +13,6 @@ exports.run = async (client, msg, args) => {
 
 module.exports.help = {
     name:"massban",
+    aliases: [],
     usage: "!massban <user>,<user>,<user>,<user> | !massban <userid>,<userid>,userid>,<userid>"
   }
