@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-	config: {
+	help: {
         name: "user-info",
 		aliases: ['user'],
         category: "info",
