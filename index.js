@@ -9,8 +9,6 @@ let cooldown = new Set();
 client.cooldown = cooldown;
 const Enmap = require("enmap");
 client.config = require("./config.json")
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
 client.profile = new Enmap({ name: "profile", fetchAll: true });
 client.settings = new Enmap({ name: "settings", fetchAll: true });
 client.reactionroles = new Enmap({ name: "reactionroles", fetchAll: true });
@@ -25,25 +23,23 @@ console.log(`Loaded ${files.length} events!`)
     client.on(eventName, event.bind(null, client));
   });
 });
-fs.readdir("./commands/", (err, files) => {
-  if (err) console.error(err);
-  let jsfiles = files.filter(f => f.split(".").pop() === "js");
 
-  if (jsfiles.length <= 0) {
-    console.log("There are no commands to load...");
-    return;
-  }
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 
-  console.log(`Loading ${jsfiles.length} Commands`);
-  jsfiles.forEach((f, i) => {
-    let props = require(`./commands/${f}`);
-    console.log(`${i + 1}: ${f} Loaded!`);
-    client.commands.set(props.help.name, props);
-    props.help.aliases.forEach(alias => {
-      client.aliases.set(alias, props.help.name)
-   })
-  });
-});
+fs.readdir(`./commands/`, (err, files) => {
+  if(err) console.log(err)
+files.forEach(f => {
+  if(!f.endsWith(".js")) return;
+if(f.length <= 0) return console.log(" No commands")
+console.log(f + " Loaded")
+let command = require(`./commands/${module}/${f}`)
+client.commands.set(command.help.name, command)
+command.help.aliases.forEach(alias => {
+client.aliases.set(alias, command.help.name)
+})
+})
+})
 
 client.once('ready', () => {
 	console.log('Ready!');
