@@ -32,5 +32,6 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
   name: "set-noxpchannel",
+aliases: [],
   usage: "!set-noxpchannel <channel> | !set-noxpchannel #channel"
 };
