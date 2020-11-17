@@ -9,7 +9,9 @@ if (user.bot) return;
       console.log("error fetching the message " + err);
     }
   }
-
+const beingApplied = client.applications
+        .get(reaction.message.guild.id, "applications")
+        .findIndex(obj => obj.author === user.id) >= 1
   if (
     reaction.message.id ===
     client.applications.get(reaction.message.guild.id, "message")
