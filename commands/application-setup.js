@@ -67,6 +67,6 @@ exports.run = async (client, msg, args) => {
 
 module.exports.help = {
     name:"application-setup",
-    aliases: []
+    aliases: [],
     usage:"!application-setup"
   }
