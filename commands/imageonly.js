@@ -35,5 +35,6 @@ exports.run = (client, msg, args) => {
 
   module.exports.help = {
     name:"imageonly",
+    aliases: [],
     usage: 'Make a channel image only',
   }
