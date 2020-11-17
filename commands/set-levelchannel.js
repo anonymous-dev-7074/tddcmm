@@ -17,5 +17,6 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
     name:"set-levelchannel",
+aliases: [],
     usage: "!set-levelchannel <channel> || !set-levelchannel #channel"
   }
