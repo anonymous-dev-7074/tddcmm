@@ -1,4 +1,4 @@
-{ MessageEmbed }= require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
 const { mem, cpu, os } = require('node-os-utils');
 const { stripIndent } = require('common-tags');
