@@ -29,6 +29,6 @@ exports.run = async (client, msg, args) => {
 
 module.exports.help = {
     name:"application-deny",
-    aliases: []
+    aliases: [],
     usage:"!application-deny <userid>"
   }
