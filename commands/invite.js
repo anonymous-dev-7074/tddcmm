@@ -9,5 +9,6 @@ msg.channel.send(`https://discordapp.com/oauth2/authorize?client_id=${client.use
 
 exports.help = {
 	name:"invite",
+        aliases: [],
 	usage:"!invite"
 }
