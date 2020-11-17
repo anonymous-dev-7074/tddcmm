@@ -43,5 +43,6 @@ module.exports = {
 }}
   module.exports.help = {
     name:"setlevel",
+    aliases: [],
     usage: 'Lock a channel down.',
   }
