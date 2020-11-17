@@ -15,7 +15,7 @@ exports.run = (client, msg, args) => {
     .addField('<:messages:778289415171735563>┃**APPLICATION SYSTEM**', '`application-setup` `application-deny` `application-accept` `applications`')
     .addField('<:add:778289156065198102>┃**USER CHANNELS**', '`userchannels-setup` `join` `uckick`')
     .setImage("https://cdn.discordapp.com/attachments/768524656747085896/777720602420445254/20201116_075308.gif")
-    .setColor("#FFFFFF")
+    .setColor("#0a0a0b")
     .setFooter("To view extra information about a command, use !help <command>")
     msg.channel.send(embed)
     return;
