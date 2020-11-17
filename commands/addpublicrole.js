@@ -23,5 +23,6 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
     name:"addpublicrole",
+    aliases: [],
     usage:"!addpublicrole <role>"
   }
