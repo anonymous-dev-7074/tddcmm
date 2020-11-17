@@ -34,5 +34,6 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
     name:"setrolechannel",
+    aliases : [] ,
     usage: "!setrolechannel <channel> | !setrolechannel #channel | !setrolechannel none"
   } 
