@@ -26,5 +26,6 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
     name:"roles",
+aliases: [],
     usage:"!roles <page>",
   }
