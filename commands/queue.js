@@ -2,7 +2,8 @@ const { MessageEmbed } = require("discord.js")
       
 module.exports = {
 help: {
-name: "queue"
+name: "queue",
+aliases: []
 },
 run: async (client, message, args) => {
   const bot = client;
