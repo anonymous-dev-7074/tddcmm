@@ -19,5 +19,6 @@ if (!page) return msg.reply('Please provide a page.')
 
 exports.help = {
 	name:"servers",
+aliases: [],
 	usage: "servers <page>"
 }
