@@ -4,7 +4,7 @@ const { mem, cpu, os } = require('node-os-utils');
 const { stripIndent } = require('common-tags');
 
 module.exports = {
-    config: {
+    help: {
         name: "stats",
         aliases: ['bot-info'],
         category: "info",
