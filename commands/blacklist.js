@@ -20,6 +20,7 @@ msg.reply(':thumbsup: blacklisted the user.')
 
 exports.help = {
 	name:"blacklist",
+        aliases: [],
 	usage: "!blacklist <user>",
 	group: "developer"
 }
