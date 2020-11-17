@@ -15,6 +15,7 @@ Canvas.registerFont("assest/fonts/bourbon.ttf", {
   family: "Bourbon"
 });
 let beingApplied = new Set();
+
 const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL"],
   fetchAllMembers: true,
@@ -22,6 +23,7 @@ const client = new Discord.Client({
 });
 const player = new Player(client)
 client.player = player;
+client.beingApplied = beingApplied;
 const fs = require("fs");
 let cooldown = new Set();
 client.cooldown = cooldown;
