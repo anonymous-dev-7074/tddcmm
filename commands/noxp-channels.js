@@ -33,6 +33,6 @@ exports.run = async (client, msg, args) => {
 
 module.exports.help = {
   name: "noxpchannels",
-  aliases : [] ,
+  aliases : [],
   usage: "!set-noxpchannel <channel> | !set-noxpchannel #channel"
 };
