@@ -26,5 +26,6 @@ exports.run = async (client, msg, args) => {
 
 exports.help = {
     name:"uckick",
+    aliases : [] ,
     usage:"!uckick <user>"
 }
