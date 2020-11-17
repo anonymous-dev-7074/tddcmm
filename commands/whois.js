@@ -47,5 +47,6 @@ module.exports.run = async (client, msg, args) => {
 
 exports.help = {
   name: "whois",
+  aliases : [],
   usage: "whois <user>"
 };
