@@ -35,8 +35,8 @@ module.exports = {
     
     const embed = new MessageEmbed()
       .setTitle('Bot\'s Statistics')
-      .addField('Commands', `\`${message.client.commands.size}\` commands`, true)
-      .addField('Aliases', `\`${message.client.aliases.size}\` aliases`, true)
+      .addField('Commands', `\`${message.client.commands.cache.size}\` commands`, true)
+      .addField('Aliases', `\`${message.client.aliases.cache.size}\` aliases`, true)
       .addField('Client', `\`\`\`asciidoc\n${clientStats}\`\`\``)
       .addField('Server', `\`\`\`asciidoc\n${serverStats}\`\`\``)
       .addField(
