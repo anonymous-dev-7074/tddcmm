@@ -149,6 +149,6 @@ console.log(roles[i])
 
 exports.help = {
 	name:"autocolor",
-        aliases: []
+        aliases: [],
 	usage:"!autocolor #channel"
 }
