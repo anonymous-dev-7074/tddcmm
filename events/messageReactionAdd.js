@@ -9,8 +9,7 @@ if (user.bot) return;
       console.log("error fetching the message " + err);
     }
   }
-const beingApplied = client.applications
-        .get(reaction.message.guild.id, "applications")
+const beingApplied = client.beingApplied;
   if (
     reaction.message.id ===
     client.applications.get(reaction.message.guild.id, "message")
@@ -31,7 +30,7 @@ const beingApplied = client.applications
       return;
     }
 
-    if (beingApplied.map(x=>x.author).has(user.id)) {
+    if (beingApplied.has(user.id)) {
       reaction.message.channel
         .send(
           user.tag +
