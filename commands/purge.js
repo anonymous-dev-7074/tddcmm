@@ -72,6 +72,6 @@ exports.run = async (client, msg, args) => {
 
 module.exports.help = {
     name:"purge",
-    aliases : [] ,
+    aliases : [],
     usage: "!purge all | !purge <amount> | !purge images | !purge bots | !purge @user"
   }
