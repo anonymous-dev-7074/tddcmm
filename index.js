@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
-const client = new Discord.Client({timeout: 60000});
+const client = new Discord.Client({timeout: 60000,         ws: {
+            intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS", "GUILD_BANS", "GUILD_VOICE_STATES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS"]
+        }});
 require("./logs.js");
 const db = require("quick.db")
 let beingApplied = new Set();
