@@ -11,6 +11,6 @@ exports.run = async (client, msg, args) => {
 
 exports.help = {
     name:"prefix",
-    aliases : [] ,
+    aliases : [],
     usage:"!prefix <prefix>"
 }
