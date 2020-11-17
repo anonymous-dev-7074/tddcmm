@@ -13,7 +13,7 @@ module.exports = {
    },
     run: async (client, message, args) => {
         
-    const d = moment.duration(message.client.uptime);
+    const d = moment.duration(client.uptime);
     const days = (d.days() == 1) ? `${d.days()} day` : `${d.days()} days`;
     const hours = (d.hours() == 1) ? `${d.hours()} hour` : `${d.hours()} hours`;
     const clientStats = stripIndent`
