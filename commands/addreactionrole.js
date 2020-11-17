@@ -59,5 +59,6 @@ exports.run = async (client, msg, args) => {
    
    module.exports.help = {
     name:"addreactionrole",
+    aliases: [],
     usage:"!addreactionrole <messageID> <emoji> <role>\nCustom Emojis: !addreactionrole <messageid> <emojiname> <role>"
   }
