@@ -20,5 +20,6 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
     name:"set-levelmessage",
+aliases: [],
     usage: "!set-levelmessage <message> (max 1800 characters)\n{user} for user & {level} for level."
   }
