@@ -22,6 +22,6 @@ if (!msg.member.hasPermission("ADMINISTRATOR")) return msg.reply('You do not hav
 
 module.exports.help = {
     name:"add-doublexprole",
-    aliases: []
+    aliases: [],
     usage: "!add-doublexprole <role>"
   }
