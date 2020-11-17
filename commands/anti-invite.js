@@ -25,5 +25,6 @@ exports.run = (client, msg, args) => {
 
   module.exports.help = {
     name:"anti-invite",
+    aliases: []
     usage:'Disable users from sending invites in your server.',
   }
