@@ -22,5 +22,6 @@ exports.run = (client, msg, args) => {
 
 module.exports.help = {
     name:"leaderboard",
+    aliases: [],
     usage:"!leaderboard <page>",
   }
