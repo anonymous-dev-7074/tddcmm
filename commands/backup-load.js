@@ -3,7 +3,6 @@ const db = require("quick.db")
 const fs = require('fs')
 const yaml = require("js-yaml");
 const backup = require("discord-backup")
-const { PREFIX } = require('../../config');
 const { attention, permission, messagesfetchlimts, yes, arrowhere, botlog } = yaml.load(fs.readFileSync("./config.yml"));
 
 module.exports = {
