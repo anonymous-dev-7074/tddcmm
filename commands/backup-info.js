@@ -6,7 +6,7 @@ const backup = require("discord-backup")
 const { attention, permission, messagesfetchlimts, yes, arrowhere, botlog, no } = yaml.load(fs.readFileSync("./config.yml"));
 
 module.exports = {
-    config: {
+    help: {
         name: "backup-info",
         description: "Show You List Of Your Guilds Backups",
         accessableby: "Administrator",
