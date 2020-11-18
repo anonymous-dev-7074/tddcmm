@@ -2,6 +2,7 @@ const { ErelaClient, Utils } = require("erela.js");
 const { MessageEmbed } = require("discord.js")
 
 module.exports = async(client) => {
+client.user.setActivity(`+help | ${client.users.cache.size}`, {type: "WATCHING"})
   client.blacklisted.ensure(client.user.id, {
     blacklistedusers: []
   });
