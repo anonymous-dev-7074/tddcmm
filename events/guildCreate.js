@@ -29,6 +29,6 @@ client.settings.set(guild.id, {
       }
     ]
   });
-client.user.setActivity(`+help | ${client.users.cache.size}`, {type: "WATCHING"})
+client.user.setActivity(`+help | ${client.users.cache.size} guilds`, {type: "WATCHING"})
 
 }
