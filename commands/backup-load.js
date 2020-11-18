@@ -37,15 +37,6 @@ module.exports = {
     // Fetching the backup to know if it exists
     backup.fetch(backupID).then(async () => {
 
-	let prefix;
-        let fetched = client.settings.set(message.guild.id,  "prefix")
-
-        if (fetched === null) {
-            prefix = PREFIX
-        } else {
-            prefix = fetched
-        }
-
       let warning = new Discord.MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL())
       .setDescription(`:warning: | When the backup is loaded, all the channels, roles, etc. will be replaced! Type **${prefix}confirm** to confirm!!`)
