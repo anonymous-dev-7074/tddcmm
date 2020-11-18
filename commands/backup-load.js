@@ -39,11 +39,11 @@ module.exports = {
 
       let warning = new Discord.MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL())
-      .setDescription(`:warning: | When the backup is loaded, all the channels, roles, etc. will be replaced! Type **${prefix}confirm** to confirm!!`)
+      .setDescription(`:warning: | When the backup is loaded, all the channels, roles, etc. will be replaced! Type **+** to confirm!!`)
       .setFooter(message.guild.name, guildicon2)
 
          message.channel.send(warning);
-            await message.channel.awaitMessages(m => (m.author.id === message.author.id) && (m.content === prefix + "confirm"), {
+            await message.channel.awaitMessages(m => (m.author.id === message.author.id) && (m.content ===  "confirm"), {
                 max: 1,
                 time: 20000,
                 errors: ["time"]
