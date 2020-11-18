@@ -14,7 +14,7 @@ module.exports = {
         aliases: [],
         usage: ''
     },
-    run: async (client, message, args) => {
+    run: async (client, message, msg, args) => {
       const guildicon2 = message.guild.iconURL()
 
       if(!message.member.hasPermission("ADMINISTRATOR", "MANAGE_GUILD")){
