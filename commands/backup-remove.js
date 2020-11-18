@@ -6,7 +6,7 @@ const backup = require("discord-backup")
 const { attention, permission, messagesfetchlimts, yes, arrowhere, botlog, no } = yaml.load(fs.readFileSync("./config.yml"));
 
 module.exports = {
-    config: {
+    help: {
         name: "backup-remove",
         description: "Remove Backup.",
         accessableby: "Administrator",
