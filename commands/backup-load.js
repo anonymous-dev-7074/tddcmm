@@ -38,7 +38,7 @@ module.exports = {
     backup.fetch(backupID).then(async () => {
 
 	let prefix;
-        let fetched = await db.fetch(`prefix_${message.guild.id}`);
+        let fetched = client.settings.set(msg.guild.id,  "prefix")
 
         if (fetched === null) {
             prefix = PREFIX
