@@ -10,6 +10,7 @@ const fs = require("fs");
 let cooldown = new Set();
 client.cooldown = cooldown;
 const Enmap = require("enmap");
+client.beingApplied = beingApplied;
 client.config = require("./config.json")
 client.profile = new Enmap({ name: "profile", fetchAll: true });
 client.settings = new Enmap({ name: "settings", fetchAll: true });
