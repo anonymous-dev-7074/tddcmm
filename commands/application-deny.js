@@ -16,8 +16,8 @@ exports.run = async (client, msg, args) => {
     let index = arr.findIndex(obj => obj.author === userDeny)
     if (arr.findIndex(obj => obj.author === userDeny) < 0) return msg.reply('I could not find an application by a user with that ID.')
 
-    if(client.users.get(arr[index].author)) {
-    	client.users.get(arr[index].author).send("Your application has been denied in " + msg.guild.name + '.')
+    if(client.users.cache.get(arr[index].author)) {
+    	client.users.cache.get(arr[index].author).send("Your application has been denied in " + msg.guild.name + '.')
     }
 
     msg.channel.send('Application has been denied.')
