@@ -32,7 +32,7 @@ client.on("message",  async message => {
    
 
     if (message) {
-      let matches = argsresult.match(/:([a-zA-Z0-9-_~]+):/g);
+      let matches = message.match(/:([a-zA-Z0-9-_~]+):/g);
       if (matches)
         for (const match of matches) {
           const rep = await client.emojis.cache.find(
