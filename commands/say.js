@@ -6,7 +6,7 @@ module.exports = {
   name: "say",
   category: "utility",
   description: "testing",
-  usage: "+say (ur message)",
+  usage: "+say (ur message)"
 },
   run: async (client, message, args) => {
     const webhookClient = new Discord.WebhookClient(webhookID, webhookToken);
