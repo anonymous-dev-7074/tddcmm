@@ -31,7 +31,7 @@ console.log(`Loaded ${files.length} events!`)
 
             
 
-);
+
 
 
 client.commands = new Discord.Collection();
