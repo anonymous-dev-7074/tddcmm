@@ -50,7 +50,7 @@ client.on("message",  async message => {
           message.channel
             .createWebhook(client.user.username, client.user.displayAvatarURL())
             .then(web => {
-              web.send(argsresult, {
+              web.send(message, {
                 username: message.author.username,
                 avatarURL: message.author.displayAvatarURL()
               });
