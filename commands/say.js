@@ -2,10 +2,12 @@ const Discord = require("discord.js");
 //don't distab me
 
 module.exports = {
+  help : { 
   name: "say",
   category: "utility",
   description: "testing",
   usage: "+say (ur message)",
+},
   run: async (client, message, args) => {
     const webhookClient = new Discord.WebhookClient(webhookID, webhookToken);
 
