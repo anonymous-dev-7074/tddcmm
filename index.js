@@ -29,6 +29,7 @@ console.log(`Loaded ${files.length} events!`)
 
 
 client.on("message",  async message => {
+const args = message.content.trim().split(/ +/g);
    
 let argsresult = args.join(" ");
     if (argsresult) {
