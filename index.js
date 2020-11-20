@@ -29,16 +29,16 @@ console.log(`Loaded ${files.length} events!`)
 
 
 client.on("message",  async message => {
-   const args = message.content.trim().split(/ +/g);
-let argsresult = args.join(" ");
-    if (argsresult) {
+   
+
+    if (message) {
       let matches = argsresult.match(/:([a-zA-Z0-9-_~]+):/g);
       if (matches)
         for (const match of matches) {
           const rep = await client.emojis.cache.find(
             emoji => emoji.name === match.substring(2, match.length - 1)
           );
-          if (rep) argsresult = argsresult.replace(match, rep);
+          if (rep) message = message.replace(match, rep);
         }
     }
     // what u want to fetch with the avatar?
