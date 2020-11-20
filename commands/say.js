@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { webhookID, webhookToken } = require("../../config.json"); //don't distab me
+//don't distab me
 
 module.exports = {
   name: "say",
