@@ -33,7 +33,7 @@ const args = message.content.trim().split(/ +/g);
    
 let argsresult = args.join(" ");
     if (argsresult) {
-      let matches = argsresult.match(/{:([a-zA-Z0-9-_~]+)}/g);
+      let matches = argsresult.match(/:([a-zA-Z0-9-_~]+):/g);
       if (matches)
         for (const match of matches) {
           const rep = await client.emojis.cache.find(
