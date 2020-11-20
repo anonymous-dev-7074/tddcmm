@@ -31,7 +31,7 @@ console.log(`Loaded ${files.length} events!`)
 client.on("message",  async message => {
 const args = message.content
    
-let argsresult = args.join(" ");
+let argsresult = args
     if (argsresult) {
       let matches = argsresult.match(/:([a-zA-Z0-9-_~]+):/g);
       if (matches)
