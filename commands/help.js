@@ -5,18 +5,18 @@ exports.run = (client, msg, args) => {
   
   if (!args[0]) {
     let embed = new MessageEmbed()
-    .addField('<:misc:778289440333496360>**┃MISCELLANEOUS**', '`help` `prefix` `support` `settings` `embed` `av` `invite`')
-    .addField('<a:aMusic:778296399376810004>**┃MUSIC**', '`loop` `lyrics` `nowplaying` `pause` `play` `playlist` `pruning` `queue` `remove` `resume` `search` `shuffle` `skip` `skipto` `stop` `volume`')
-    .addField('<:leaderboard:778297450565730314>┃**LEVEL SYSTEM**', '`removelevelrole` `levelroles` `level`, `leaderboard` `set-levelchannel` `resetall` `addlevelrole` `set-xpgain` `set-noxprole` `set-levelmessage`, `setlevel`, `set-noxprole` `set-noxpchannel` `add-doublexprole` `disablelevelsystem`')
-    .addField('<:a_rolechangeticket:778291006550442045>┃**REACTION ROLES**', '`addreactionrole` `removereactionrole` `reactionroles`')
-    .addField('<:clear:778289089245609984>┃**MODERATION**', '`addrole` `purge` `imageonly` `anti-invite` `ban` `kick` `mute` `unmute` `softban`')
-    .addField('<:commands:778300060386721793>┃**ROLE SYSTEM**', '`roles` `addpublicrole` `setrolechannel`')
-    .addField('<a:welcome:778302209770913812>┃**WELCOME SYSTEM**', '`welcome`')
-    .addField('<:messages:778289415171735563>┃**APPLICATION SYSTEM**', '`application-setup` `application-deny` `application-accept` `applications`')
-    .addField('<:add:778289156065198102>┃**USER CHANNELS**', '`userchannels-setup` `join` `uckick`')
+    .addField('<a:upn:778449425580294174>**┃MISCELLANEOUS**', '`help` `prefix` `support` `settings` `embed` `av` `invite`')
+    .addField('<a:cd_1:778450226787778572>**┃MUSIC**', '`loop` `lyrics` `nowplaying` `pause` `play` `playlist` `pruning` `queue` `remove` `resume` `search` `shuffle` `skip` `skipto` `stop` `volume`')
+    .addField('<a:kjsc:778449744300081222>┃**LEVEL SYSTEM**', '`removelevelrole` `levelroles` `level`, `leaderboard` `set-levelchannel` `resetall` `addlevelrole` `set-xpgain` `set-noxprole` `set-levelmessage`, `setlevel`, `set-noxprole` `set-noxpchannel` `add-doublexprole` `disablelevelsystem`')
+    .addField('<a:info5:778449861112365067>┃**REACTION ROLES**', '`addreactionrole` `removereactionrole` `reactionroles`')
+    .addField('<a:8780_discord_geaz:778450033867489292>┃**MODERATION**', '`addrole` `purge` `imageonly` `anti-invite` `ban` `kick` `mute` `unmute` `softban`')
+    .addField('<:members5:778449689179717672>┃**ROLE SYSTEM**', '`roles` `addpublicrole` `setrolechannel`')
+    .addField('<a:22:778450157636157441>┃**WELCOME SYSTEM**', '`welcome`')
+    .addField('<:custom5:778464394837098516>┃**APPLICATION SYSTEM**', '`application-setup` `application-deny` `application-accept` `applications`')
+    .addField('<a:WumpusHidingInHypeSquad:778449400858148886>┃**USER CHANNELS**', '`userchannels-setup` `join` `uckick`')
     .setImage("https://cdn.discordapp.com/attachments/768524656747085896/777720602420445254/20201116_075308.gif")
     .setColor("#0a0a0b")
-    .setFooter("To view extra information about a command, use !help <command>")
+    
     msg.channel.send(embed)
     return;
   }
