@@ -13,6 +13,7 @@ const Enmap = require("enmap");
 client.beingApplied = beingApplied;
 client.config = require("./config.json")
 client.profile = new Enmap({ name: "profile", fetchAll: true });
+client.formatDuration = require('./utils/formatDuration.js')
 client.settings = new Enmap({ name: "settings", fetchAll: false, autoFetch: true, cloneLevel: 'deep' });
 client.reactionroles = new Enmap({ name: "reactionroles", fetchAll: true });
 client.blacklisted = new Enmap({ name: "blacklisted" });
