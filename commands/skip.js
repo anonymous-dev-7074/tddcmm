@@ -5,13 +5,13 @@ aliases: ["next"]
 },	
 
 run: async (client, message, args) => {
-		const bot = client;
-        const player = bot.music.players.get(message.guild.id);
-        if(!player) return message.channel.send("No song/s currently playing in this guild.");
-
-        const voiceChannel = message.member.voice.channel;
-        if(!voiceChannel || voiceChannel.id !== player.voiceChannel.id) return message.channel.send("You need to be in a voice channel to use the skip command.");
-
-        player.stop();
-        return message.channel.send("Successfully skipped the current song")
+const msg = message;
+        if (!msg.member.voice.channelID)
+            return await msg.channel.send('Admiral, you are not in a voice channel to perform this');
+        const dispatcher = client.queue.get(msg.guild.id);
+        if (!dispatcher)
+            return await msg.channel.send('Nothing is playing in this guild.');
+        if (dispatcher.player.voiceConnection.voiceChannelID !== msg.member.voice.channelID)
+            return await msg.channel.send('Teitoku, you are not in the same voice channel where I am.');
+        await dispatcher.player.stopTrack();
 }}
