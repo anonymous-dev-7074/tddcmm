@@ -12,7 +12,7 @@ client.user.setActivity(`+help | ${client.guilds.cache.size} guilds`, {type: "WA
   });
 console.log(`${client.user.tag} is online!`)
 client.shoukaku = new Shoukaku(client, LavalinkServer, ShoukakuOptions);
-client.queue = new Queue(this);
+client.queue = new Queue(client);
         client.shoukaku.on('ready', (name) => console.log(`Lavalink ${name}: Ready!`));
         client.shoukaku.on('error', (name, error) => console.error(`Lavalink ${name}: Error Caught,`, error));
         client.shoukaku.on('close', (name, code, reason) => console.warn(`Lavalink ${name}: Closed, Code ${code}, Reason ${reason || 'No reason'}`));
