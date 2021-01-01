@@ -61,7 +61,7 @@ this.queueloop = false;
         this.queue.length = 0;
         this.player.disconnect();
         this.client.queue.delete(this.guild.id);
-        this.text.send({embed: {description: '<:9192_random_tick:777220713442443285> Queue has ended.', color: 'black'}}).catch(() => null);
+        this.text.send({embed: {description: '<a:verif:790188749039337473> Queue has ended.', color: 'black'}}).catch(() => null);
     }
 }
 
