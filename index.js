@@ -5,13 +5,23 @@ const client = new Discord.Client({timeout: 60000,         ws: {
 require("./logs.js");
 const db = require("quick.db")
 let beingApplied = new Set();
-
+const { Shoukaku } = require('shoukaku');
+const config = require("./config.json");
+const LavalinkServer = config.nodes;
+const ShoukakuOptions = { moveOnDisconnect: false, resumable: false, resumableTimeout: 30, reconnectTries: 2, restTimeout: 10000 };
+const Queue = require('./modules/Queue.js');
 const fs = require("fs");
 let cooldown = new Set();
 client.cooldown = cooldown;
 const Enmap = require("enmap");
 client.beingApplied = beingApplied;
 client.config = require("./config.json")
+client.shoukaku = new Shoukaku(client, LavalinkServer, ShoukakuOptions);
+client.queue = new Queue(client);
+        client.shoukaku.on('ready', (name) => console.log(`Lavalink ${name}: Ready!`));
+        client.shoukaku.on('error', (name, error) => console.error(`Lavalink ${name}: Error Caught,`, error));
+        client.shoukaku.on('close', (name, code, reason) => console.warn(`Lavalink ${name}: Closed, Code ${code}, Reason ${reason || 'No reason'}`));
+        client.shoukaku.on('disconnected', (name, reason) => console.warn(`Lavalink ${name}: Disconnected, Reason ${reason || 'No reason'}`));
 client.profile = new Enmap({ name: "profile", fetchAll: true });
 client.formatDuration = require('./utils/formatDuration.js')
 client.settings = new Enmap({ name: "settings", fetchAll: false, autoFetch: true, cloneLevel: 'deep' });
