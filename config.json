@@ -1,3 +1,11 @@
 {
-"nodes": [ { "host": "localhost", "port": 2333, "password": "youshallnotpass"} ]
+  "nodes": [
+    {
+      "name": "Node-01",
+      "host": "localhost",
+      "port": 2333,
+      "auth": "youshallnotpass"
+    }
+]
+
 }
