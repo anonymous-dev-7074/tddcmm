@@ -1,4 +1,8 @@
-const { ErelaClient, Utils } = require("erela.js");
+const { Shoukaku } = require('shoukaku');
+const config = require("../config.json");
+const LavalinkServer = config.nodes;
+const ShoukakuOptions = { moveOnDisconnect: false, resumable: false, resumableTimeout: 30, reconnectTries: 2, restTimeout: 10000 };
+const Queue = require('../modules/Queue.js');
 const { MessageEmbed } = require("discord.js")
 
 module.exports = async(client) => {
@@ -7,27 +11,13 @@ client.user.setActivity(`+help | ${client.guilds.cache.size} guilds`, {type: "WA
     blacklistedusers: []
   });
 console.log(`${client.user.tag} is online!`)
-  client.music = new ErelaClient(client, client.config.nodes);
-  client.music.on("nodeConnect", node => console.log("New node connected"));
-  client.music.on("nodeError", (node, error) =>
-    console.log(`Node error: ${error.message}`)
-  );
-  client.music.on("trackStart", (player, track) => {
-    const { thumbnail } = track;
-    const embed = new MessageEmbed()
-      .addField(track.author, `**[${track.title}](${track.uri})**`)
-      .addField("Duration", `${Utils.formatTime(track.duration, true)}`)
-      .addField("Requested By", track.requester)
-      .setFooter(player.voiceChannel.name)
-      .setTimestamp()
-      .setImage(
-        `https://img.youtube.com/vi/${track.identifier}/maxresdefault.jpg`
-      )
-      .setColor("black");
-    player.textChannel.send(embed);
-})
-  client.music.on("queueEnd", async player => {
-    player.textChannel.send({embed: {color: "black",description: "Queue has ended."}})
-    return client.music.players.destroy(player.guild.id)
-    })
+client.shoukaku = new Shoukaku(this, LavalinkServer, ShoukakuOptions);
+client.queue = new Queue(this);
+        client.shoukaku.on('ready', (name) => console.log(`Lavalink ${name}: Ready!`));
+        client.shoukaku.on('error', (name, error) => console.error(`Lavalink ${name}: Error Caught,`, error));
+        client.shoukaku.on('close', (name, code, reason) => console.warn(`Lavalink ${name}: Closed, Code ${code}, Reason ${reason || 'No reason'}`));
+        client.shoukaku.on('disconnected', (name, reason) => console.warn(`Lavalink ${name}: Disconnected, Reason ${reason || 'No reason'}`));
+
+
+
 }
