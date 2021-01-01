@@ -14,7 +14,6 @@ class AudioDispatcher {
 
 
         this.player.on('start', () =>{
-let duration = ms(this.current.info.length, {long: false})
 const embed = new MessageEmbed()
 .setTitle('Now Playing:')
 .setDescription(`[${this.current.info.title}](${this.current.info.uri})`)
