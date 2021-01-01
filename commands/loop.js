@@ -1,39 +1,48 @@
+const sastaLoop = new Map()
 module.exports = {
 help: {
 name: "loop",
 aliases: []
 },
 run: async(client, message, args) => {
-const bot = client;
-
-            const player = bot.music.players.get(message.guild.id);
-    if(!args[0]) return message.channel.send("Please specify to enable or disable loop")
-    if(args[0] == 'queue' || args[0] == "queue"){
-    if(player.queueRepeat == false){
-    player.setQueueRepeat(true)
-            message.channel.send('queue loop has been turned on')
-    }
-            else if(player.queueRepeat == true){
-           player.setQueueRepeat(false)
-                    message.channel.send('queue loop has been turned off')
-            };
-    
-    
-    };
-     
-            if(args[0] == 'track' || args[0] == "t"){    
-    
-      if(player.trackRepeat == true){
-            player.setTrackRepeat(false)
-              message.channel.send({embed: {description: "trackloop has been turned off"}})
-    
-      }
-      else if(player.trackRepeat == false){
-            player.setTrackRepeat(true)
-                            message.channel.send({embed: {description: "trackbloop has been turned on!"}})
-     }
-                         
-    
-            }
+const queue = client.queue.get(message.guild.id);
+if(!args[0]) {
+const xd = sastaLoop.get(message.guild.id)
+if(xd == null || xd == 0) {
+sastaLoop.set(message.guild.id, 1)
+queue.trackloop = true;
+queue.queueloop = false;
+message.channel.send({embed: {color: 'black', description: 'Now looping the **current track**'}})
+}
+else if (xd == 1) {
+sastaLoop.set(message.guild.id, 2)
+queue.trackloop = false;
+queue.queueloop = true;
+message.channel.send({embed: {color: 'black', description: 'Now looping the **queue**'}})
+}    
+else if(xd == 2) {
+sastaLoop.set(message.guild.id, 0)
+queue.trackloop = false;
+queue.queueloop = false;
+message.channel.send({embed: {color: 'black', description: 'Looping has been **disabled**'}})
+}
+}
+else if(args[0]) {
+if(args[0] == 'song' || args[0] == 'track'){
+queue.trackloop = true;
+queue.queueloop = false;
+message.channel.send({embed: {color: 'black', description: 'Now looping the **current track**'}})
+}
+else if(args[0] == 'queue') {
+queue.trackloop = false;
+queue.queueloop = true;
+message.channel.send({embed: {color: 'black', description: 'Now looping the **queue**'}})
+}
+else if(args[0] == 'disable' || args[0] == 'off'){
+queue.trackloop = false;
+queue.queueloop = false;
+message.channel.send({embed: {color: 'black', description: 'Looping has been **disabled**'}})
+}
+}
 }
 }
