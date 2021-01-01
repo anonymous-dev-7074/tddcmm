@@ -17,7 +17,7 @@ class AudioDispatcher {
 const embed = new MessageEmbed()
 .setTitle('Now Playing:')
 .setDescription(`[${this.current.info.title}](${this.current.info.uri})`)
-this.text.send(embed)
+//this.text.send(embed)
 //this.text.send(`Now Playing: **${this.current.info.title}**`)
 
 })
