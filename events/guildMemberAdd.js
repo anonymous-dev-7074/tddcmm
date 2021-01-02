@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const Canvas = require("canvas")
 const { centerText } = require("../util/Util");
 const db = require("quick.db");
+var validator = require('validator');
 const { weirdToNormalChars } = require('weird-to-normal-chars')
 module.exports = async (client, member) => { 
 
@@ -78,9 +79,11 @@ let font = db.get(`font_${member.guild.id}`)
   if (embed == null) {
     client.channels.cache.get(welchannl).send(welmsg || "", attach);
   } else {
+let h = db.get(`ec_${member.guild.id}`);
+if(!h || validator.isHexCode(h)) h = "#00FF00";
     const embed = new Discord.MessageEmbed()
       .setDescription(welmsg || "")
-      .setColor("#00FF00") //thik ha na //yes embed  custom kardo
+      .setColor(h) //thik ha na //yes embed  custom kardo
       .attachFiles([new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png")])
       .setImage("attachment://welcome.png");
     client.channels.cache.get(welchannl).send(embed); //acha laga ga
