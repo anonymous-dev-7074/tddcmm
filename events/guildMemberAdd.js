@@ -80,7 +80,7 @@ let font = db.get(`font_${member.guild.id}`)
     client.channels.cache.get(welchannl).send(welmsg || "", attach);
   } else {
 let h = db.get(`ec_${member.guild.id}`);
-if(!h || validator.isHexCode(h)) h = "#00FF00";
+if(!h || validator.isHexColor(h)) h = "#00FF00";
     const embed = new Discord.MessageEmbed()
       .setDescription(welmsg || "")
       .setColor(h) //thik ha na //yes embed  custom kardo
