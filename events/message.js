@@ -206,7 +206,7 @@ if (msg.channel.type == "dm") return;
     let data = array.findIndex(obj => obj.level === curLevel);
     if (data < 0) return;
 
-    msg.guild.member(msg.author).roles.add(array[data].role);
+    msg.guild.members.cache.get(msg.author.id).roles.add(array[data].role);
     msg.channel
       .send(
         "You leveled up to level **" +
@@ -216,9 +216,7 @@ if (msg.channel.type == "dm") return;
           " 👍"
       )
       .then(m => {
-        setTimeout(() => {
-          m.delete();
-        }, 5000);
+          m.delete({timeout: 5000});
       });
   }
 
